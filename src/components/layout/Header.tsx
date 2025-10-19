@@ -25,8 +25,8 @@ export default function Header() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 shadow-md backdrop-blur-sm'
-            : 'bg-white'
+            ? 'bg-neutral-500/95 shadow-lg shadow-primary-500/20 backdrop-blur-sm border-b border-primary-500/30'
+            : 'bg-neutral-500 border-b border-neutral-400'
         }`}
       >
         <Container>
@@ -34,9 +34,9 @@ export default function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="text-xl font-bold text-primary-600 transition-colors hover:text-primary-700 md:text-2xl"
+              className="text-xl font-bold text-primary-500 transition-colors hover:text-primary-400 md:text-2xl tracking-wider"
             >
-              Kurt Adams
+              🤖 KURT_ADAMS.EXE
             </Link>
 
             {/* Desktop Navigation */}
@@ -45,7 +45,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 md:hidden"
+              className="rounded-lg p-2 text-primary-500 transition-colors hover:bg-neutral-400 md:hidden border border-primary-500/50"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (

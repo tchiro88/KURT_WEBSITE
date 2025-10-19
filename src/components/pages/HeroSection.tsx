@@ -7,7 +7,7 @@ import Button from '../ui/Button'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-50 py-20 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-neutral-600 via-neutral-500 to-neutral-600 py-20 md:py-32 border-b border-primary-500/30">
       <Container>
         <div className="relative">
           <motion.div
@@ -16,6 +16,16 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
+            {/* Robot Icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="mb-6 text-6xl"
+            >
+              🤖
+            </motion.div>
+
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -23,8 +33,8 @@ export default function HeroSection() {
               transition={{ delay: 0.2 }}
               className="mb-6 inline-block"
             >
-              <span className="rounded-full bg-primary-100 px-4 py-2 text-sm font-medium text-primary-700">
-                Industrial Automation Engineer
+              <span className="rounded-none bg-neutral-400 border border-primary-500 px-4 py-2 text-sm font-bold text-primary-500 tracking-wider uppercase">
+                [ INDUSTRIAL AUTOMATION ENGINEER ]
               </span>
             </motion.div>
 
@@ -33,10 +43,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 text-4xl font-bold text-neutral-900 md:text-5xl lg:text-6xl"
+              className="mb-6 text-3xl font-bold text-primary-500 md:text-5xl lg:text-6xl tracking-wide uppercase"
             >
-              Transforming Industrial Operations with{' '}
-              <span className="text-primary-600">Intelligent Automation</span>
+              TRANSFORMING INDUSTRIAL OPS WITH{' '}
+              <span className="text-primary-400">INTELLIGENT_AUTOMATION</span>
             </motion.h1>
 
             {/* Description */}
@@ -44,7 +54,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mb-8 text-lg text-neutral-600 md:text-xl"
+              className="mb-8 text-base text-neutral-100 md:text-lg leading-relaxed"
             >
               10+ years of experience delivering control systems, IIoT solutions,
               and automation projects worth $6M+ across mining, agriculture, and
@@ -81,19 +91,19 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-12 grid grid-cols-3 gap-8 border-t border-neutral-200 pt-8"
+              className="mt-12 grid grid-cols-3 gap-8 border-t border-primary-500/30 pt-8"
             >
-              <div>
-                <div className="text-3xl font-bold text-primary-600">10+</div>
-                <div className="text-sm text-neutral-600">Years Experience</div>
+              <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
+                <div className="text-3xl font-bold text-primary-500 font-mono">10+</div>
+                <div className="text-xs text-neutral-100 uppercase tracking-wider mt-2">Years_Experience</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-primary-600">$6M+</div>
-                <div className="text-sm text-neutral-600">Projects Delivered</div>
+              <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
+                <div className="text-3xl font-bold text-primary-500 font-mono">$6M+</div>
+                <div className="text-xs text-neutral-100 uppercase tracking-wider mt-2">Projects_Delivered</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-primary-600">50+</div>
-                <div className="text-sm text-neutral-600">Systems Deployed</div>
+              <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
+                <div className="text-3xl font-bold text-primary-500 font-mono">50+</div>
+                <div className="text-xs text-neutral-100 uppercase tracking-wider mt-2">Systems_Deployed</div>
               </div>
             </motion.div>
           </motion.div>

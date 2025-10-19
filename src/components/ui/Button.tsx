@@ -30,9 +30,9 @@ export default function Button({
   } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`
 
   const variants = {
-    primary: 'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm hover:shadow-md',
-    secondary: 'bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md',
-    outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 active:bg-primary-100',
+    primary: 'bg-neutral-400 text-primary-500 border-2 border-primary-500 hover:bg-primary-500 hover:text-neutral-900 active:bg-primary-400 shadow-lg shadow-primary-500/20 font-bold tracking-wider uppercase',
+    secondary: 'bg-transparent text-primary-500 border-2 border-primary-500 hover:bg-primary-500/20 active:bg-primary-500/30 font-bold tracking-wider uppercase',
+    outline: 'border-2 border-primary-500 text-primary-500 hover:bg-primary-500/20 active:bg-primary-500/30 font-bold tracking-wider uppercase',
   }
 
   const sizes = {

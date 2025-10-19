@@ -1,31 +1,37 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Color Palette - Industrial Blue (Primary) */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  /* Color Palette - Cyberpunk/Tech Theme (matching autosapien.ai) */
+  --color-primary-50: #e6f7f9;
+  --color-primary-100: #b3e9ed;
+  --color-primary-200: #80dbe1;
+  --color-primary-300: #4dcdd5;
+  --color-primary-400: #26c1cb;
+  --color-primary-500: #00a0aa;
+  --color-primary-600: #008a93;
+  --color-primary-700: #00747b;
+  --color-primary-800: #005e63;
+  --color-primary-900: #004247;
 
-  /* Color Palette - Technical Gray (Neutral) */
-  --color-neutral-50: #f8fafc;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-200: #e2e8f0;
-  --color-neutral-300: #cbd5e1;
-  --color-neutral-400: #94a3b8;
-  --color-neutral-500: #64748b;
-  --color-neutral-600: #475569;
-  --color-neutral-700: #334155;
-  --color-neutral-800: #1e293b;
-  --color-neutral-900: #0f172a;
+  /* Color Palette - Dark Grays (Neutral) */
+  --color-neutral-50: #2d2d2d;
+  --color-neutral-100: #262626;
+  --color-neutral-200: #1f1f1f;
+  --color-neutral-300: #1a1a1a;
+  --color-neutral-400: #141414;
+  --color-neutral-500: #0d0d0d;
+  --color-neutral-600: #0a0a0a;
+  --color-neutral-700: #080808;
+  --color-neutral-800: #050505;
+  --color-neutral-900: #000000;
 
-  /* Color Palette - Engineering Orange (Accent) */
+  /* Text Colors */
+  --color-text-primary: #00a0aa;
+  --color-text-secondary: #999999;
+  --color-text-muted: #666666;
+  --color-text-bright: #00d4e0;
+
+  /* Accent Colors */
   --color-accent-50: #fff7ed;
   --color-accent-100: #ffedd5;
   --color-accent-200: #fed7aa;
@@ -38,14 +44,14 @@
   --color-accent-900: #7c2d12;
 
   /* Semantic Colors */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #00ff88;
+  --color-warning: #ffaa00;
+  --color-error: #ff3366;
+  --color-info: #00a0aa;
 
-  /* Typography */
-  --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  /* Typography - Monospace for tech aesthetic */
+  --font-family-sans: 'Courier New', 'Monaco', 'Consolas', monospace;
+  --font-family-mono: 'Courier New', 'Monaco', 'Consolas', monospace;
 }
 
 /* Base Styles */
@@ -60,11 +66,12 @@ html {
 }
 
 body {
-  background: var(--color-neutral-50);
-  color: var(--color-neutral-900);
+  background: var(--color-neutral-500);
+  color: var(--color-text-primary);
   font-family: var(--font-family-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.05rem;
 }
 
 /* Accessibility - Reduced Motion */

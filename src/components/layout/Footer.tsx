@@ -29,17 +29,17 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="border-t border-neutral-200 bg-white">
+    <footer className="border-t border-primary-500/30 bg-neutral-500">
       <Container>
         <div className="py-8 md:py-12">
           {/* Top Section */}
           <div className="grid gap-8 md:grid-cols-3">
             {/* About */}
             <div>
-              <h3 className="mb-4 text-lg font-semibold text-neutral-900">
-                Kurt Adams
+              <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
+                🤖 Kurt_Adams
               </h3>
-              <p className="text-sm text-neutral-600">
+              <p className="text-sm text-neutral-100">
                 Industrial Automation Engineer specializing in control systems,
                 IIoT, and advanced automation solutions.
               </p>
@@ -47,14 +47,14 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="mb-4 text-lg font-semibold text-neutral-900">
-                Quick Links
+              <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
+                Quick_Links
               </h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
                     href="/projects"
-                    className="text-neutral-600 transition-colors hover:text-primary-600"
+                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Projects
                   </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/experience"
-                    className="text-neutral-600 transition-colors hover:text-primary-600"
+                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Experience
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/expertise"
-                    className="text-neutral-600 transition-colors hover:text-primary-600"
+                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Expertise
                   </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/education"
-                    className="text-neutral-600 transition-colors hover:text-primary-600"
+                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Education
                   </Link>
@@ -88,10 +88,10 @@ export default function Footer() {
 
             {/* Contact */}
             <div>
-              <h3 className="mb-4 text-lg font-semibold text-neutral-900">
+              <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
                 Get in Touch
               </h3>
-              <div className="space-y-2 text-sm text-neutral-600">
+              <div className="space-y-2 text-sm text-neutral-100">
                 <p>Perth, Western Australia</p>
                 <a
                   href="mailto:kurt_a@me.com"
@@ -110,7 +110,7 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="my-8 border-t border-neutral-200" />
+          <div className="my-8 border-t border-primary-500/30" />
 
           {/* Bottom Section */}
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
@@ -134,7 +134,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-neutral-100">
               © {currentYear} Kurt Adams. All rights reserved.
             </p>
           </div>
