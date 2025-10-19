@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    url: 'https://tchiro88.github.io/KURT_WEBSITE',
+    url: 'https://kurt-adams.autosapien.ai',
     title: 'Kurt Adams - Industrial Automation Engineer',
     description: 'Industrial Automation Engineer specializing in control systems and IIoT solutions',
     siteName: 'Kurt Adams Portfolio',
