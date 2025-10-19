@@ -1,0 +1,72 @@
+import type { Experience } from '@/lib/types'
+
+export const experience: Experience[] = [
+  {
+    id: 'national-bdm',
+    title: 'National Business Development Manager - Industrial Automation',
+    company: 'Waste, Recycling, and Agriculture Sectors',
+    location: 'Perth, WA',
+    startDate: 'August 2023',
+    current: true,
+    description: 'Leading automation engineering solutions across waste, recycling, and agriculture sectors with focus on control systems design and implementation.',
+    achievements: [
+      'Delivered $6M export hay press project with complete control system design',
+      'Successfully re-engineered ABB robot integration ($100K automation upgrade)',
+      'Developed standardized automation frameworks for $100K-$1M equipment range',
+    ],
+    technologies: [
+      'Rockwell Allen-Bradley',
+      'PlantPAX',
+      'ABB Robotics',
+      'Hydraulic Control',
+      'SCADA',
+    ],
+    projectValue: '$6M+',
+  },
+  {
+    id: 'cooper-fluid',
+    title: 'Technical Sales Representative - Mining & Offshore',
+    company: 'Cooper Fluid Systems',
+    location: 'Perth, WA',
+    startDate: 'January 2020',
+    endDate: 'July 2023',
+    current: false,
+    description: 'Scoped and delivered automation retrofit projects for tier 1 mining operations, integrating modern control systems with existing infrastructure.',
+    achievements: [
+      'Delivered $2M+ mining automation projects across multiple sites',
+      'Integrated new equipment into existing DCS and PLC control infrastructure',
+      'Achieved 10% revenue growth through innovative automation solutions',
+      'Established $1.5M first-year value in new mining automation opportunities',
+    ],
+    technologies: [
+      'Schneider Electric',
+      'Siemens S7',
+      'DCS Integration',
+      'Modbus',
+      'Industrial Networks',
+    ],
+    projectValue: '$2M+',
+  },
+  {
+    id: 'noble-pilbara',
+    title: 'Technical Representative - Pilbara Mining',
+    company: 'A. Noble & Son P/L',
+    location: 'Pilbara, WA',
+    startDate: 'October 2015',
+    endDate: 'August 2017',
+    current: false,
+    description: 'Delivered commissioning, maintenance automation, and condition monitoring systems across Pilbara mining operations.',
+    achievements: [
+      'Successfully onboarded Roy Hill and FMG sites within 3 months',
+      'Delivered $2M project portfolio including automated rope-changeout systems',
+      'Implemented maintenance automation and condition monitoring',
+    ],
+    technologies: [
+      'NDT Services',
+      'Condition Monitoring',
+      'Automated Systems',
+      'Mining Operations',
+    ],
+    projectValue: '$2M',
+  },
+]
