@@ -39,7 +39,7 @@ export default function Footer() {
               <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
                 🤖 Kurt_Adams
               </h3>
-              <p className="text-sm text-neutral-100">
+              <p className="text-sm text-neutral-50">
                 Industrial Automation Engineer specializing in control systems,
                 IIoT, and advanced automation solutions.
               </p>
@@ -54,7 +54,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/projects"
-                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Projects
                   </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/experience"
-                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Experience
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/expertise"
-                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Expertise
                   </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/education"
-                    className="text-neutral-100 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Education
                   </Link>
@@ -91,17 +91,17 @@ export default function Footer() {
               <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
                 Get in Touch
               </h3>
-              <div className="space-y-2 text-sm text-neutral-100">
+              <div className="space-y-2 text-sm text-neutral-50">
                 <p>Perth, Western Australia</p>
                 <a
                   href="mailto:kurt_a@me.com"
-                  className="block transition-colors hover:text-primary-600"
+                  className="block transition-colors hover:text-primary-400"
                 >
                   kurt_a@me.com
                 </a>
                 <a
                   href="tel:+61434720160"
-                  className="block transition-colors hover:text-primary-600"
+                  className="block transition-colors hover:text-primary-400"
                 >
                   0434 720 160
                 </a>
@@ -124,7 +124,7 @@ export default function Footer() {
                     href={link.href}
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-primary-600"
+                    className="rounded-lg p-2 text-neutral-50 transition-colors hover:bg-neutral-400 hover:text-primary-400"
                     aria-label={link.name}
                   >
                     <Icon className="h-5 w-5" />
@@ -134,7 +134,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <p className="text-sm text-neutral-100">
+            <p className="text-sm text-neutral-50">
               © {currentYear} Kurt Adams. All rights reserved.
             </p>
           </div>
