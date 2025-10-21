@@ -27,13 +27,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Key Metrics */}
       {project.metrics && (
-        <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 rounded-lg bg-neutral-50 p-3 sm:p-4">
+        <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 rounded-lg bg-neutral-800 border border-primary-500/30 p-3 sm:p-4">
           {project.metrics.map((metric) => (
             <div key={metric.label}>
-              <div className="text-lg font-bold text-primary-600">
+              <div className="text-lg font-bold text-primary-400">
                 {metric.value}
               </div>
-              <div className="text-xs text-neutral-900 font-semibold">
+              <div className="text-xs text-neutral-200 font-semibold uppercase tracking-wider">
                 {metric.label}
               </div>
             </div>
