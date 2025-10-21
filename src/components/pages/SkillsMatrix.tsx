@@ -17,7 +17,7 @@ export default function SkillsMatrix() {
       {skillCategories.map((category) => (
         <motion.div key={category.id} variants={fadeInUp}>
           <Card className="h-full">
-            <h3 className="mb-2 text-xl font-bold text-neutral-900">
+            <h3 className="mb-2 text-xl font-bold text-primary-400 uppercase tracking-wider">
               {category.name}
             </h3>
             {category.description && (

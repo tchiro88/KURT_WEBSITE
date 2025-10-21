@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <Card hover className="flex h-full flex-col">
       {/* Project Header */}
       <div className="mb-4">
-        <h3 className="mb-2 text-xl font-bold text-neutral-900">
+        <h3 className="mb-2 text-xl font-bold text-primary-400">
           {project.title}
         </h3>
         <p className="text-sm font-medium text-primary-600">
@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <div className="text-lg font-bold text-primary-600">
                 {metric.value}
               </div>
-              <div className="text-xs text-neutral-700">
+              <div className="text-xs text-neutral-900 font-semibold">
                 {metric.label}
               </div>
             </div>
@@ -46,7 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {project.technologies.map((tech) => (
           <span
             key={tech}
-            className="inline-block rounded-md bg-neutral-100 px-2 py-1 text-xs font-medium text-neutral-700"
+            className="inline-block rounded-md bg-neutral-800 px-2 py-1 text-xs font-medium text-primary-400 border border-primary-500/30"
           >
             {tech}
           </span>

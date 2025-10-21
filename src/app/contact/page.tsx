@@ -24,17 +24,17 @@ export default function ContactPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Contact Information */}
             <Card>
-              <h3 className="mb-6 text-xl font-bold text-neutral-900">
+              <h3 className="mb-6 text-xl font-bold text-primary-400 uppercase tracking-wider">
                 Contact Information
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <Mail className="mt-1 h-5 w-5 text-primary-600" />
+                  <Mail className="mt-1 h-5 w-5 text-primary-500" />
                   <div>
-                    <p className="font-medium text-neutral-900">Email</p>
+                    <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Email</p>
                     <a
                       href="mailto:kurt_a@me.com"
-                      className="text-neutral-600 hover:text-primary-600"
+                      className="text-neutral-200 hover:text-primary-400"
                     >
                       kurt_a@me.com
                     </a>
@@ -42,12 +42,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="mt-1 h-5 w-5 text-primary-600" />
+                  <Phone className="mt-1 h-5 w-5 text-primary-500" />
                   <div>
-                    <p className="font-medium text-neutral-900">Phone</p>
+                    <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Phone</p>
                     <a
                       href="tel:+61434720160"
-                      className="text-neutral-600 hover:text-primary-600"
+                      className="text-neutral-200 hover:text-primary-400"
                     >
                       0434 720 160
                     </a>
@@ -55,10 +55,10 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 text-primary-600" />
+                  <MapPin className="mt-1 h-5 w-5 text-primary-500" />
                   <div>
-                    <p className="font-medium text-neutral-900">Location</p>
-                    <p className="text-neutral-600">Perth, Western Australia</p>
+                    <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Location</p>
+                    <p className="text-neutral-200">Perth, Western Australia</p>
                   </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function ContactPage() {
 
             {/* Professional Links */}
             <Card>
-              <h3 className="mb-6 text-xl font-bold text-neutral-900">
+              <h3 className="mb-6 text-xl font-bold text-primary-400 uppercase tracking-wider">
                 Professional Links
               </h3>
               <div className="space-y-4">
@@ -105,25 +105,25 @@ export default function ContactPage() {
 
           {/* Additional Info */}
           <Card className="mt-8">
-            <h3 className="mb-4 text-xl font-bold text-neutral-900">
+            <h3 className="mb-4 text-xl font-bold text-primary-400 uppercase tracking-wider">
               Areas of Expertise
             </h3>
             <div className="grid gap-4 md:grid-cols-3">
               <div>
-                <h4 className="mb-2 font-semibold text-neutral-900">Control Systems</h4>
-                <p className="text-sm text-neutral-600">
+                <h4 className="mb-2 font-semibold text-primary-500 uppercase text-sm tracking-wider">Control Systems</h4>
+                <p className="text-sm text-neutral-200">
                   PLC programming, SCADA design, and DCS integration
                 </p>
               </div>
               <div>
-                <h4 className="mb-2 font-semibold text-neutral-900">IIoT Solutions</h4>
-                <p className="text-sm text-neutral-600">
+                <h4 className="mb-2 font-semibold text-primary-500 uppercase text-sm tracking-wider">IIoT Solutions</h4>
+                <p className="text-sm text-neutral-200">
                   Node-RED, MQTT, edge computing, and data analytics
                 </p>
               </div>
               <div>
-                <h4 className="mb-2 font-semibold text-neutral-900">Project Engineering</h4>
-                <p className="text-sm text-neutral-600">
+                <h4 className="mb-2 font-semibold text-primary-500 uppercase text-sm tracking-wider">Project Engineering</h4>
+                <p className="text-sm text-neutral-200">
                   End-to-end project delivery from design to commissioning
                 </p>
               </div>

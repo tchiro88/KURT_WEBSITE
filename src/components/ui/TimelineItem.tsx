@@ -31,7 +31,7 @@ export default function TimelineItem({
           </div>
 
           {/* Job Title */}
-          <h3 className="mb-1 text-xl font-bold text-neutral-900">
+          <h3 className="mb-1 text-xl font-bold text-primary-400">
             {experience.title}
           </h3>
 
@@ -48,7 +48,7 @@ export default function TimelineItem({
           {/* Key Achievements */}
           {experience.achievements && experience.achievements.length > 0 && (
             <div className="mb-4">
-              <h4 className="mb-2 text-sm font-semibold text-neutral-900">
+              <h4 className="mb-2 text-sm font-semibold text-primary-500 uppercase tracking-wider">
                 Key Achievements:
               </h4>
               <ul className="space-y-1 text-sm text-neutral-200">
