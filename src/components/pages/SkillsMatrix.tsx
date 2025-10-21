@@ -21,7 +21,7 @@ export default function SkillsMatrix() {
               {category.name}
             </h3>
             {category.description && (
-              <p className="mb-4 text-sm text-neutral-200">
+              <p className="mb-4 text-sm text-accent-400">
                 {category.description}
               </p>
             )}

@@ -39,7 +39,7 @@ export default function Footer() {
               <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
                 🤖 Kurt_Adams
               </h3>
-              <p className="text-sm text-neutral-50">
+              <p className="text-sm text-accent-400">
                 Industrial Automation Engineer specializing in control systems,
                 IIoT, and advanced automation solutions.
               </p>
@@ -54,7 +54,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/projects"
-                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-accent-400 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Projects
                   </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/experience"
-                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-accent-400 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Experience
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/expertise"
-                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-accent-400 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Expertise
                   </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/education"
-                    className="text-neutral-50 transition-colors hover:text-primary-400 uppercase tracking-wide"
+                    className="text-accent-400 transition-colors hover:text-primary-400 uppercase tracking-wide"
                   >
                     Education
                   </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
               <h3 className="mb-4 text-lg font-bold text-primary-500 tracking-wider uppercase">
                 Get in Touch
               </h3>
-              <div className="space-y-2 text-sm text-neutral-50">
+              <div className="space-y-2 text-sm text-accent-400">
                 <p>Perth, Western Australia</p>
                 <a
                   href="mailto:kurt_a@me.com"
@@ -124,7 +124,7 @@ export default function Footer() {
                     href={link.href}
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="rounded-lg p-2 text-neutral-50 transition-colors hover:bg-neutral-400 hover:text-primary-400"
+                    className="rounded-lg p-2 text-accent-400 transition-colors hover:bg-neutral-400 hover:text-primary-400"
                     aria-label={link.name}
                   >
                     <Icon className="h-5 w-5" />
@@ -134,7 +134,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <p className="text-sm text-neutral-50">
+            <p className="text-sm text-accent-400">
               © {currentYear} Kurt Adams. All rights reserved.
             </p>
           </div>

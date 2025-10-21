@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Project Description */}
-      <p className="mb-4 flex-grow text-neutral-200">
+      <p className="mb-4 flex-grow text-accent-400">
         {project.description}
       </p>
 
@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <div className="text-lg font-bold text-primary-400">
                 {metric.value}
               </div>
-              <div className="text-xs text-neutral-200 font-semibold uppercase tracking-wider">
+              <div className="text-xs text-accent-400 font-semibold uppercase tracking-wider">
                 {metric.label}
               </div>
             </div>

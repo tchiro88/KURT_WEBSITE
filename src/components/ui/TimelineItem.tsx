@@ -36,12 +36,12 @@ export default function TimelineItem({
           </h3>
 
           {/* Company */}
-          <p className="mb-4 text-sm sm:text-base text-neutral-200">
+          <p className="mb-4 text-sm sm:text-base text-accent-400">
             {experience.company} {experience.location && `• ${experience.location}`}
           </p>
 
           {/* Description */}
-          <p className="mb-4 text-neutral-200">
+          <p className="mb-4 text-accent-400">
             {experience.description}
           </p>
 
@@ -51,7 +51,7 @@ export default function TimelineItem({
               <h4 className="mb-2 text-sm font-semibold text-primary-500 uppercase tracking-wider">
                 Key Achievements:
               </h4>
-              <ul className="space-y-1 text-sm text-neutral-200">
+              <ul className="space-y-1 text-sm text-accent-400">
                 {experience.achievements.map((achievement, i) => (
                   <li key={i} className="flex gap-2">
                     <span className="text-primary-600">•</span>

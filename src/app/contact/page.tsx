@@ -34,7 +34,7 @@ export default function ContactPage() {
                     <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Email</p>
                     <a
                       href="mailto:kurt_a@me.com"
-                      className="text-neutral-200 hover:text-primary-400"
+                      className="text-accent-400 hover:text-primary-400"
                     >
                       kurt_a@me.com
                     </a>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                     <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Phone</p>
                     <a
                       href="tel:+61434720160"
-                      className="text-neutral-200 hover:text-primary-400"
+                      className="text-accent-400 hover:text-primary-400"
                     >
                       0434 720 160
                     </a>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                   <MapPin className="mt-1 h-5 w-5 text-primary-500" />
                   <div>
                     <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Location</p>
-                    <p className="text-neutral-200">Perth, Western Australia</p>
+                    <p className="text-accent-400">Perth, Western Australia</p>
                   </div>
                 </div>
               </div>
@@ -111,19 +111,19 @@ export default function ContactPage() {
             <div className="grid gap-4 md:grid-cols-3">
               <div>
                 <h4 className="mb-2 font-semibold text-primary-500 uppercase text-sm tracking-wider">Control Systems</h4>
-                <p className="text-sm text-neutral-200">
+                <p className="text-sm text-accent-400">
                   PLC programming, SCADA design, and DCS integration
                 </p>
               </div>
               <div>
                 <h4 className="mb-2 font-semibold text-primary-500 uppercase text-sm tracking-wider">IIoT Solutions</h4>
-                <p className="text-sm text-neutral-200">
+                <p className="text-sm text-accent-400">
                   Node-RED, MQTT, edge computing, and data analytics
                 </p>
               </div>
               <div>
                 <h4 className="mb-2 font-semibold text-primary-500 uppercase text-sm tracking-wider">Project Engineering</h4>
-                <p className="text-sm text-neutral-200">
+                <p className="text-sm text-accent-400">
                   End-to-end project delivery from design to commissioning
                 </p>
               </div>

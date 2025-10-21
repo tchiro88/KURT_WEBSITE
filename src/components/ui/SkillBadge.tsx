@@ -16,7 +16,7 @@ export default function SkillBadge({
   }
 
   const variants = {
-    default: 'bg-neutral-800 text-neutral-100 border border-primary-500/30',
+    default: 'bg-neutral-800 text-accent-400 border border-primary-500/30',
     primary: 'bg-primary-900 text-primary-400 border border-primary-500',
     accent: 'bg-accent-900 text-accent-400 border border-accent-500',
   }

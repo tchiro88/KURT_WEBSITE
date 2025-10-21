@@ -26,7 +26,7 @@ export default function Navigation({ className = '', onLinkClick }: NavigationPr
                 className={`text-base font-medium transition-colors tracking-wider uppercase ${
                   isActive
                     ? 'text-primary-500 border-b-2 border-primary-500'
-                    : 'text-neutral-100 hover:text-primary-400 border-b-2 border-transparent hover:border-primary-400/50'
+                    : 'text-accent-400 hover:text-primary-400 border-b-2 border-transparent hover:border-primary-400/50'
                 }`}
               >
                 {item.label}

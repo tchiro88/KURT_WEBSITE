@@ -54,7 +54,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mb-8 text-base text-neutral-100 md:text-lg leading-relaxed"
+              className="mb-8 text-base text-accent-400 md:text-lg leading-relaxed"
             >
               10+ years of experience delivering control systems, IIoT solutions,
               and automation projects worth $6M+ across mining, agriculture, and
@@ -95,15 +95,15 @@ export default function HeroSection() {
             >
               <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
                 <div className="text-3xl font-bold text-primary-500 font-mono">10+</div>
-                <div className="text-xs text-neutral-100 uppercase tracking-wider mt-2">Years_Experience</div>
+                <div className="text-xs text-accent-400 uppercase tracking-wider mt-2">Years_Experience</div>
               </div>
               <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
                 <div className="text-3xl font-bold text-primary-500 font-mono">$6M+</div>
-                <div className="text-xs text-neutral-100 uppercase tracking-wider mt-2">Projects_Delivered</div>
+                <div className="text-xs text-accent-400 uppercase tracking-wider mt-2">Projects_Delivered</div>
               </div>
               <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
                 <div className="text-3xl font-bold text-primary-500 font-mono">50+</div>
-                <div className="text-xs text-neutral-100 uppercase tracking-wider mt-2">Systems_Deployed</div>
+                <div className="text-xs text-accent-400 uppercase tracking-wider mt-2">Systems_Deployed</div>
               </div>
             </motion.div>
           </motion.div>
