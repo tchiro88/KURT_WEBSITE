@@ -21,19 +21,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Project Description */}
-      <p className="mb-4 flex-grow text-neutral-600">
+      <p className="mb-4 flex-grow text-neutral-200">
         {project.description}
       </p>
 
       {/* Key Metrics */}
       {project.metrics && (
-        <div className="mb-4 grid grid-cols-2 gap-3 rounded-lg bg-neutral-50 p-3">
+        <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 rounded-lg bg-neutral-50 p-3 sm:p-4">
           {project.metrics.map((metric) => (
             <div key={metric.label}>
               <div className="text-lg font-bold text-primary-600">
                 {metric.value}
               </div>
-              <div className="text-xs text-neutral-600">
+              <div className="text-xs text-neutral-700">
                 {metric.label}
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Actions */}
-      <div className="mt-auto flex gap-2">
+      <div className="mt-auto flex gap-2 flex-col sm:flex-row">
         {project.link && (
           <Button
             href={project.link}

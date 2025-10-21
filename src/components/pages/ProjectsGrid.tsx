@@ -11,7 +11,7 @@ export default function ProjectsGrid() {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
     >
       {projects.map((project) => (
         <motion.div key={project.id} variants={fadeInUp}>

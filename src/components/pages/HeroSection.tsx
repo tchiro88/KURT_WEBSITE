@@ -7,7 +7,7 @@ import Button from '../ui/Button'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-neutral-600 via-neutral-500 to-neutral-600 py-20 md:py-32 border-b border-primary-500/30">
+    <section className="relative overflow-hidden bg-gradient-to-br from-neutral-600 via-neutral-500 to-neutral-600 py-12 sm:py-20 md:py-32 border-b border-primary-500/30">
       <Container>
         <div className="relative">
           <motion.div
@@ -21,7 +21,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="mb-6 text-6xl"
+              className="mb-4 sm:mb-6 text-5xl sm:text-6xl"
             >
               🤖
             </motion.div>
@@ -33,7 +33,7 @@ export default function HeroSection() {
               transition={{ delay: 0.2 }}
               className="mb-6 inline-block"
             >
-              <span className="rounded-none bg-neutral-400 border border-primary-500 px-4 py-2 text-sm font-bold text-primary-500 tracking-wider uppercase">
+              <span className="rounded-none bg-neutral-400 border border-primary-500 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold text-primary-500 tracking-wider uppercase whitespace-nowrap">
                 [ INDUSTRIAL AUTOMATION ENGINEER ]
               </span>
             </motion.div>
@@ -43,7 +43,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 text-3xl font-bold text-primary-500 md:text-5xl lg:text-6xl tracking-wide uppercase"
+              className="mb-6 text-2xl font-bold text-primary-500 sm:text-3xl md:text-5xl lg:text-6xl tracking-wide uppercase leading-tight"
             >
               TRANSFORMING INDUSTRIAL OPS WITH{' '}
               <span className="text-primary-400">INTELLIGENT_AUTOMATION</span>
@@ -91,7 +91,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-12 grid grid-cols-3 gap-8 border-t border-primary-500/30 pt-8"
+              className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 border-t border-primary-500/30 pt-8"
             >
               <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
                 <div className="text-3xl font-bold text-primary-500 font-mono">10+</div>

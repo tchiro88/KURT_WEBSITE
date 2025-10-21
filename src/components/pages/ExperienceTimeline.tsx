@@ -14,10 +14,10 @@ export default function ExperienceTimeline() {
       className="relative"
     >
       {/* Timeline Line */}
-      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary-200 md:left-1/2" />
+      <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-primary-200 md:left-1/2" />
 
       {/* Timeline Items */}
-      <div className="space-y-12">
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {experience.map((item, index) => (
           <motion.div key={item.id} variants={fadeInUp}>
             <TimelineItem

@@ -12,7 +12,7 @@ export default function SkillsMatrix() {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="grid gap-8 md:grid-cols-2"
+      className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8"
     >
       {skillCategories.map((category) => (
         <motion.div key={category.id} variants={fadeInUp}>
@@ -21,7 +21,7 @@ export default function SkillsMatrix() {
               {category.name}
             </h3>
             {category.description && (
-              <p className="mb-4 text-sm text-neutral-600">
+              <p className="mb-4 text-sm text-neutral-200">
                 {category.description}
               </p>
             )}

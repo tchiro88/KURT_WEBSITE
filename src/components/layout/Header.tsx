@@ -30,11 +30,11 @@ export default function Header() {
         }`}
       >
         <Container>
-          <div className="flex h-16 items-center justify-between md:h-20">
+          <div className="flex h-14 sm:h-16 md:h-20 items-center justify-between">
             {/* Logo */}
             <Link
               href="/"
-              className="text-xl font-bold text-primary-500 transition-colors hover:text-primary-400 md:text-2xl tracking-wider"
+              className="text-lg sm:text-xl md:text-2xl font-bold text-primary-500 transition-colors hover:text-primary-400 tracking-wide sm:tracking-wider whitespace-nowrap"
             >
               🤖 KURT_ADAMS.EXE
             </Link>
@@ -45,7 +45,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-lg p-2 text-primary-500 transition-colors hover:bg-neutral-400 md:hidden border border-primary-500/50"
+              className="rounded-lg p-2.5 sm:p-3 text-primary-500 transition-colors hover:bg-neutral-400 md:hidden border border-primary-500/50 min-h-10 min-w-10"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (
