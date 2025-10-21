@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react'
+import { Mail, MapPin, Linkedin, Github } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
@@ -37,19 +37,6 @@ export default function ContactPage() {
                       className="text-accent-400 hover:text-primary-400"
                     >
                       kurt_a@me.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="mt-1 h-5 w-5 text-primary-500" />
-                  <div>
-                    <p className="font-medium text-primary-500 uppercase text-xs tracking-wider">Phone</p>
-                    <a
-                      href="tel:+61434720160"
-                      className="text-accent-400 hover:text-primary-400"
-                    >
-                      0434 720 160
                     </a>
                   </div>
                 </div>

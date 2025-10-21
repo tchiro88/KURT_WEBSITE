@@ -99,12 +99,6 @@ export default function Footer() {
                 >
                   kurt_a@me.com
                 </a>
-                <a
-                  href="tel:+61434720160"
-                  className="block transition-colors hover:text-primary-400"
-                >
-                  0434 720 160
-                </a>
               </div>
             </div>
           </div>

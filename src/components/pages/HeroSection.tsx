@@ -93,15 +93,15 @@ export default function HeroSection() {
               transition={{ delay: 0.6 }}
               className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 border-t border-primary-500/30 pt-8"
             >
-              <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
+              <div className="border border-primary-500/30 bg-neutral-400/20 p-4 text-center">
                 <div className="text-3xl font-bold text-primary-500 font-mono">10+</div>
                 <div className="text-xs text-accent-400 uppercase tracking-wider mt-2">Years_Experience</div>
               </div>
-              <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
+              <div className="border border-primary-500/30 bg-neutral-400/20 p-4 text-center">
                 <div className="text-3xl font-bold text-primary-500 font-mono">$6M+</div>
                 <div className="text-xs text-accent-400 uppercase tracking-wider mt-2">Projects_Delivered</div>
               </div>
-              <div className="border border-primary-500/30 bg-neutral-400/20 p-4">
+              <div className="border border-primary-500/30 bg-neutral-400/20 p-4 text-center">
                 <div className="text-3xl font-bold text-primary-500 font-mono">50+</div>
                 <div className="text-xs text-accent-400 uppercase tracking-wider mt-2">Systems_Deployed</div>
               </div>
