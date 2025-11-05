@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Card from '@/components/ui/Card.astro';
 import Badge from '@/components/ui/Badge.astro';
+import { ArrowLeft } from 'lucide-react';
 
 const pageTitle = 'Case Studies | Kurt Adams';
 const pageDescription = 'In-depth case studies of industrial automation projects and solutions';
@@ -10,6 +11,12 @@ const pageDescription = 'In-depth case studies of industrial automation projects
 <BaseLayout title={pageTitle} description={pageDescription}>
   <main class="pt-32 pb-20">
     <div class="container">
+      <!-- Back to Home -->
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors mb-8 group">
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Back to Home</span>
+      </a>
+
       <!-- Page Header -->
       <div class="text-center mb-16 md:mb-20">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
