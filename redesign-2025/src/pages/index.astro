@@ -1,0 +1,31 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@/components/sections/HeroSection.astro';
+---
+
+<MainLayout
+  title="Kurt Adams | Technical Solutions Engineer | Mining Automation Specialist"
+  description="Perth-based Technical Solutions Engineer with 10+ years in Mining Automation, IIoT, SCADA, and PLC systems. Bridging BDM experience with deep technical expertise."
+>
+  <HeroSection />
+
+  <!-- Featured Projects Section (will expand this) -->
+  <section id="featured-projects" class="section">
+    <div class="container">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+          Featured <span class="text-gradient-primary">Projects</span>
+        </h2>
+        <p class="text-lg text-steel-300 max-w-2xl mx-auto">
+          Real-world automation solutions delivering measurable business impact
+        </p>
+      </div>
+
+      <div class="text-center">
+        <a href="/projects" class="btn-primary">
+          View All Projects
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,25 @@
+# Wrangler configuration for Cloudflare Pages deployment
+# https://developers.cloudflare.com/pages/platform/
+
+name = "kurt-adams-portfolio"
+compatibility_date = "2024-11-05"
+
+# Pages configuration
+pages_build_output_dir = "dist"
+
+[env.production]
+name = "kurt-adams-portfolio"
+route = "kurt-adams.autosapien.ai/*"
+
+[env.preview]
+name = "kurt-adams-portfolio-preview"
+
+# Build configuration (also set in Pages dashboard)
+# These are reference values - actual build happens via Pages
+
+# [build]
+# command = "npm run build"
+# cwd = ""
+
+# [build.upload]
+# format = "service-worker"

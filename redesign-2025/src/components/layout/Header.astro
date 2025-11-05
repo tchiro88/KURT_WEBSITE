@@ -1,0 +1,193 @@
+---
+import { Code2, Menu, X } from 'lucide-react';
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Experience', href: '/experience' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container">
+    <nav class="flex items-center justify-between py-4 md:py-6">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center gap-2 group"
+        aria-label="Kurt Adams - Home"
+      >
+        <span class="text-3xl md:text-4xl" aria-hidden="true">🤖</span>
+        <div class="flex flex-col">
+          <span class="text-xl md:text-2xl font-bold text-primary-400 font-mono tracking-tight">
+            KURT_ADAMS
+          </span>
+          <span class="text-xs md:text-sm text-steel-400 font-mono tracking-wider">
+            TECHNICAL_SOLUTIONS.EXE
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex items-center gap-1">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'px-4 py-2 rounded-lg font-medium transition-all duration-200',
+                'hover:bg-steel-800/30 hover:text-primary-400',
+                currentPath === item.href
+                  ? 'text-primary-400 bg-steel-800/30'
+                  : 'text-text-secondary',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA Button (Desktop) -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a
+          href="/contact"
+          class="btn-primary"
+        >
+          Get In Touch
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden p-2 text-text-secondary hover:text-primary-400 transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <Menu class="w-6 h-6" id="menu-icon" />
+        <X class="w-6 h-6 hidden" id="close-icon" />
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 top-[72px] bg-background-primary/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300 ease-in-out"
+  >
+    <div class="container py-8">
+      <ul class="flex flex-col gap-2">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'block px-6 py-4 rounded-lg font-medium transition-all duration-200',
+                'hover:bg-steel-800/30 hover:text-primary-400',
+                currentPath === item.href
+                  ? 'text-primary-400 bg-steel-800/30'
+                  : 'text-text-secondary',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-8 px-6">
+        <a
+          href="/contact"
+          class="btn-primary w-full"
+        >
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    background: rgba(10, 10, 10, 0);
+  }
+
+  #header.scrolled {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const body = document.body;
+
+  mobileMenuButton?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('translate-x-0');
+
+    if (isOpen) {
+      // Close menu
+      mobileMenu?.classList.remove('translate-x-0');
+      mobileMenu?.classList.add('translate-x-full');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      body.style.overflow = '';
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+    } else {
+      // Open menu
+      mobileMenu?.classList.add('translate-x-0');
+      mobileMenu?.classList.remove('translate-x-full');
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      body.style.overflow = 'hidden';
+      mobileMenuButton.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Close menu on link click
+  const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+  mobileMenuLinks?.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('translate-x-0');
+      mobileMenu?.classList.add('translate-x-full');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      body.style.overflow = '';
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

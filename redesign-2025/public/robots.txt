@@ -1,0 +1,14 @@
+# robots.txt for Kurt Adams Portfolio
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://kurt-adams.autosapien.ai/sitemap-index.xml
+
+# Disallow admin/preview pages if any
+Disallow: /admin/
+Disallow: /_admin/
+
+# Allow all bots to access content
+# This portfolio is meant to be discovered by recruiters and hiring managers

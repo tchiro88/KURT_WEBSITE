@@ -1,0 +1,184 @@
+---
+import { Github, Linkedin, Mail, MapPin, FileText } from 'lucide-react';
+
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Experience', href: '/experience' },
+];
+
+const resources = [
+  { label: 'Skills & Expertise', href: '/skills' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Resume', href: '/resume.pdf' },
+];
+
+const skills = [
+  'Ignition SCADA',
+  'Node-RED & MQTT',
+  'PLC Programming',
+  'Mining Automation',
+  'IIoT Platforms',
+  'Remote Operations',
+];
+---
+
+<footer class="relative mt-32 border-t border-steel-800/50 bg-background-secondary/50 backdrop-blur-sm">
+  <div class="container py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      <!-- Brand Column -->
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-flex items-center gap-2 mb-4 group">
+          <span class="text-3xl" aria-hidden="true">🤖</span>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold text-primary-400 font-mono">
+              KURT_ADAMS
+            </span>
+            <span class="text-xs text-steel-400 font-mono">
+              TECHNICAL_SOLUTIONS.EXE
+            </span>
+          </div>
+        </a>
+        <p class="text-steel-400 text-sm mb-6 max-w-xs">
+          Technical Solutions Engineer specializing in Mining Automation, IIoT, and SCADA systems.
+          Based in Perth, Western Australia.
+        </p>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-3">
+          <a
+            href="https://github.com/kurt-adams"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2 rounded-lg bg-steel-800/30 text-steel-400 hover:text-primary-400 hover:bg-steel-800/50 transition-all"
+            aria-label="GitHub"
+          >
+            <Github class="w-5 h-5" />
+          </a>
+          <a
+            href="https://linkedin.com/in/kurt-adams"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2 rounded-lg bg-steel-800/30 text-steel-400 hover:text-primary-400 hover:bg-steel-800/50 transition-all"
+            aria-label="LinkedIn"
+          >
+            <Linkedin class="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:kurt@autosapien.ai"
+            class="p-2 rounded-lg bg-steel-800/30 text-steel-400 hover:text-primary-400 hover:bg-steel-800/50 transition-all"
+            aria-label="Email"
+          >
+            <Mail class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-text-primary font-semibold mb-4 text-sm uppercase tracking-wider">
+          Quick Links
+        </h3>
+        <ul class="space-y-3">
+          {quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-steel-400 hover:text-primary-400 transition-colors text-sm"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h3 class="text-text-primary font-semibold mb-4 text-sm uppercase tracking-wider">
+          Resources
+        </h3>
+        <ul class="space-y-3">
+          {resources.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-steel-400 hover:text-primary-400 transition-colors text-sm"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Skills & Contact -->
+      <div>
+        <h3 class="text-text-primary font-semibold mb-4 text-sm uppercase tracking-wider">
+          Core Expertise
+        </h3>
+        <div class="flex flex-wrap gap-2 mb-6">
+          {skills.map((skill) => (
+            <span class="badge-primary text-xs">
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-steel-400 text-sm">
+            <MapPin class="w-4 h-4 text-primary-400" />
+            <span>Perth, WA</span>
+          </div>
+          <div class="flex items-center gap-2 text-steel-400 text-sm">
+            <Mail class="w-4 h-4 text-primary-400" />
+            <a href="mailto:kurt@autosapien.ai" class="hover:text-primary-400 transition-colors">
+              kurt@autosapien.ai
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-steel-800/30">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-steel-400 text-sm text-center md:text-left">
+          &copy; {currentYear} Kurt Adams. Built with <span class="text-primary-400">Astro</span> & deployed on
+          <span class="text-primary-400">Cloudflare Pages</span>.
+        </p>
+
+        <div class="flex items-center gap-6 text-sm">
+          <span class="flex items-center gap-2 text-steel-400">
+            <span class="status-active"></span>
+            <span>Available for opportunities</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative bottom gradient -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent"></div>
+</footer>
+
+<style>
+  footer {
+    position: relative;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(10, 10, 10, 0.5));
+    pointer-events: none;
+  }
+</style>

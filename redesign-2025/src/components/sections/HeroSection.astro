@@ -1,0 +1,206 @@
+---
+import { ArrowRight, Download, Zap, Target, TrendingUp } from 'lucide-react';
+import Badge from '@/components/ui/Badge.astro';
+
+interface StatMetric {
+  label: string;
+  value: string;
+  icon?: string;
+}
+
+const stats: StatMetric[] = [
+  { label: 'Years Experience', value: '10+' },
+  { label: 'Projects Delivered', value: '$6M+' },
+  { label: 'Systems Integrated', value: '50+' },
+  { label: 'Efficiency Gains', value: '35%+' },
+];
+
+const targetRoles = [
+  'Pre-Sales Solution Architect',
+  'Technical Sales Engineer',
+  'Mining Automation Solutions Engineer',
+];
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 grid-background opacity-30"></div>
+
+    <!-- Floating Orbs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-pulse-slow delay-500"></div>
+  </div>
+
+  <div class="container relative z-10">
+    <div class="flex flex-col items-center text-center max-w-5xl mx-auto">
+      <!-- Status Badge -->
+      <div class="mb-6 md:mb-8 animate-fade-in">
+        <Badge variant="primary" className="text-sm md:text-base px-6 py-2">
+          <span class="status-active mr-2"></span>
+          Available for New Opportunities | Perth, WA
+        </Badge>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="mb-6 md:mb-8 animate-slide-up">
+        <span class="block text-4xl md:text-6xl lg:text-8xl font-bold mb-4">
+          <span class="text-gradient-full">
+            Technical Solutions
+          </span>
+        </span>
+        <span class="block text-3xl md:text-5xl lg:text-6xl font-bold text-text-primary">
+          Meet Mining Automation
+        </span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="text-lg md:text-xl lg:text-2xl text-steel-300 mb-8 md:mb-12 max-w-3xl leading-relaxed animate-slide-up delay-100">
+        Bridging the gap between <span class="text-primary-400 font-semibold">business development</span> and
+        <span class="text-accent-400 font-semibold">technical excellence</span>.
+        Specialized in Mining Automation, IIoT Platforms, and Remote Operations Centers.
+      </p>
+
+      <!-- Target Roles -->
+      <div class="mb-10 md:mb-12 animate-slide-up delay-200">
+        <p class="text-sm uppercase tracking-wider text-steel-400 mb-4 font-mono">
+          Target Roles
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          {targetRoles.map((role) => (
+            <Badge variant="accent" className="text-sm md:text-base">
+              {role}
+            </Badge>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20 animate-slide-up delay-300">
+        <a
+          href="/projects"
+          class="btn-primary text-base md:text-lg group"
+        >
+          <span>View Projects</span>
+          <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a
+          href="/contact"
+          class="btn-outline text-base md:text-lg"
+        >
+          <span>Get In Touch</span>
+        </a>
+        <a
+          href="/resume.pdf"
+          class="btn-ghost text-base md:text-lg"
+          download
+        >
+          <Download class="w-5 h-5" />
+          <span>Resume</span>
+        </a>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 animate-slide-up delay-400">
+        {stats.map((stat, index) => (
+          <div
+            class="glass-card text-center group hover:glow-border transition-all duration-300"
+            style={`animation-delay: ${(index + 4) * 100}ms`}
+          >
+            <div class="metric-value text-4xl md:text-5xl mb-2">
+              {stat.value}
+            </div>
+            <div class="metric-label text-xs md:text-sm">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Unique Value Prop -->
+      <div class="mt-16 md:mt-20 max-w-4xl">
+        <div class="glass-card text-left">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="p-3 bg-primary-500/10 rounded-lg border border-primary-500/30">
+              <Zap class="w-6 h-6 text-primary-400" />
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-bold text-text-primary mb-2">
+                The Rare Hybrid: BDM + Technical Depth
+              </h3>
+              <p class="text-steel-300 leading-relaxed">
+                Unlike pure sales engineers or pure technical engineers, I bring
+                <span class="text-primary-400 font-semibold">established Perth mining relationships</span>
+                (BHP, Rio Tinto, Fortescue) combined with
+                <span class="text-accent-400 font-semibold">production-ready technical skills</span>
+                (Ignition SCADA, Node-RED, Docker, PLC programming).
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="flex items-start gap-3">
+              <Target class="w-5 h-5 text-primary-400 flex-shrink-0 mt-1" />
+              <div>
+                <h4 class="text-base font-semibold text-text-primary mb-1">Commercial Acumen</h4>
+                <p class="text-sm text-steel-400">
+                  3+ years BDM experience, $2M+ in sales, established client relationships
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <TrendingUp class="w-5 h-5 text-accent-400 flex-shrink-0 mt-1" />
+              <div>
+                <h4 class="text-base font-semibold text-text-primary mb-1">Technical Credibility</h4>
+                <p class="text-sm text-steel-400">
+                  10+ years automation, Advanced Diploma, production IIoT projects deployed
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="mt-16 md:mt-20 animate-bounce">
+        <a
+          href="#featured-projects"
+          class="inline-flex flex-col items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors"
+          aria-label="Scroll to featured projects"
+        >
+          <span class="text-sm uppercase tracking-wider font-mono">Explore</span>
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>
