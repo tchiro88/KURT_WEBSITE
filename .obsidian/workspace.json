@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DOCUMENTATION.md",
+                "file": "redesign-2025/QUICKSTART.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DOCUMENTATION"
+              "title": "QUICKSTART"
             }
           }
         ]
@@ -168,6 +168,42 @@
   },
   "active": "87f7398d3f6cdc3b",
   "lastOpenFiles": [
+    "redesign-2025/src/styles/global.css.tmp.35352.1762329641410",
+    "redesign-2025/node_modules/smoothscroll-polyfill/dist/smoothscroll.min.js",
+    "redesign-2025/node_modules/smoothscroll-polyfill/dist/smoothscroll.js",
+    "redesign-2025/node_modules/smoothscroll-polyfill/dist",
+    "redesign-2025/node_modules/smoothscroll-polyfill/yarn.lock",
+    "redesign-2025/node_modules/smoothscroll-polyfill/README.md",
+    "redesign-2025/node_modules/smoothscroll-polyfill/LICENSE",
+    "redesign-2025/node_modules/smoothscroll-polyfill/CHANGELOG.md",
+    "redesign-2025/node_modules/smoothscroll-polyfill/package.json",
+    "redesign-2025/node_modules/@emnapi/runtime/dist/emnapi.mjs",
+    "redesign-2025/node_modules/@emnapi/runtime/dist/emnapi.min.mjs",
+    "redesign-2025/node_modules/@emnapi/runtime/dist/emnapi.min.d.mts",
+    "redesign-2025/node_modules/@emnapi/runtime/dist/emnapi.min.js",
+    "redesign-2025/node_modules/@astrojs/telemetry/README.md",
+    "redesign-2025/node_modules/@astrojs/internal-helpers/readme.md",
+    "redesign-2025/node_modules/@capsizecss/unpack/README.md",
+    "redesign-2025/node_modules/@types/fontkit/README.md",
+    "redesign-2025/node_modules/uncrypto/README.md",
+    "redesign-2025/node_modules/radix3/README.md",
+    "redesign-2025/node_modules/node-mock-http/README.md",
+    "redesign-2025/node_modules/iron-webcrypto/README.md",
+    "redesign-2025/node_modules/iron-webcrypto/LICENSE.md",
+    "redesign-2025/node_modules/defu/README.md",
+    "redesign-2025/node_modules/crossws/README.md",
+    "redesign-2025/node_modules/cookie-es/README.md",
+    "redesign-2025/node_modules/h3/README.md",
+    "redesign-2025/node_modules/yoctocolors/readme.md",
+    "redesign-2025/node_modules/ufo/README.md",
+    "redesign-2025/node_modules/node-fetch-native/README.md",
+    "redesign-2025/node_modules/destr/README.md",
+    "redesign-2025/node_modules/mdn-data/README.md",
+    "redesign-2025/node_modules/ohash/README.md",
+    "redesign-2025/node_modules/ofetch/README.md",
+    "redesign-2025/node_modules/css-tree/README.md",
+    "redesign-2025/node_modules/pako/README.md",
+    "redesign-2025/node_modules/pako/CHANGELOG.md",
     "public/globe.svg",
     "public/file.svg"
   ]
