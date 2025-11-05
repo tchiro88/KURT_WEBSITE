@@ -12,5 +12,6 @@
       "@styles/*": ["src/styles/*"],
       "@content/*": ["src/content/*"]
     }
-  }
+  },
+  "exclude": ["LEGACY/**/*", "node_modules"]
 }

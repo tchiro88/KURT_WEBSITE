@@ -13,14 +13,14 @@ const {
   as: Tag = 'div',
 } = Astro.props;
 
-const variantClasses = {
+const variantClasses: Record<NonNullable<Props['variant']>, string> = {
   default: 'bg-background-secondary border border-steel-800/30',
   glass: 'glass-card',
   glow: 'bg-background-secondary glow-border',
 };
 
 const classes = `
-  ${variantClasses[variant]}
+  ${variantClasses[variant as NonNullable<Props['variant']>]}
   ${hover ? 'card-hover' : ''}
   rounded-lg p-6 md:p-8
   ${className}
