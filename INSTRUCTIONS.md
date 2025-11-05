@@ -2,9 +2,26 @@
 
 **Quick reference guide for updating your portfolio content, images, and text.**
 
+## 🌐 Site Pages
+
+Your portfolio currently has the following pages:
+
+- **Home** (`/`) - Landing page with hero section and overview
+- **Projects** (`/projects`) - Showcase of automation projects with metrics
+- **Experience** (`/experience`) - Professional timeline and education
+- **Skills** (`/skills`) - Technical expertise and proficiency levels
+- **Contact** (`/contact`) - Contact information and professional links
+- **Blog** (`/blog`) - Blog posts (placeholder - ready for content)
+- **Case Studies** (`/case-studies`) - Detailed project analysis (placeholder - ready for content)
+
 ## 📋 Table of Contents
 
-- [Adding & Editing Projects](#adding--editing-projects)
+- [Site Pages Overview](#-site-pages)
+- [Updating Page Content](#updating-page-content)
+  - [Projects Page](#projects-page)
+  - [Experience Page](#experience-page)
+  - [Skills Page](#skills-page)
+  - [Contact Page](#contact-page)
 - [Uploading Images](#uploading-images)
 - [Uploading Videos](#uploading-videos)
 - [Updating Contact Information](#updating-contact-information)
@@ -12,6 +29,92 @@
 - [Adding Blog Posts](#adding-blog-posts)
 - [Changing Colors & Styling](#changing-colors--styling)
 - [Adding Your Resume](#adding-your-resume)
+
+---
+
+## Updating Page Content
+
+### Projects Page
+
+**File:** `src/pages/projects.astro`
+
+The Projects page displays your portfolio projects. To add or edit projects:
+
+1. Open the file:
+   ```bash
+   nano src/pages/projects.astro
+   ```
+
+2. Find the `projects` array and add/edit entries:
+   ```javascript
+   const projects = [
+     {
+       id: 'unique-project-id',
+       title: 'Project Title',
+       category: 'Control Systems Engineering',
+       description: 'Detailed project description...',
+       technologies: ['Tech 1', 'Tech 2'],
+       metrics: [
+         { label: 'Project Value', value: '$6M' },
+         { label: 'Efficiency Gain', value: '35%' },
+       ],
+       featured: true,
+       status: 'completed', // or 'in-progress'
+       startDate: '2023-08',
+       endDate: '2024-06',
+       github: 'https://github.com/username/repo', // optional
+     },
+   ];
+   ```
+
+3. Save and commit:
+   ```bash
+   git add src/pages/projects.astro
+   git commit -m "Update projects"
+   git push origin main
+   ```
+
+### Experience Page
+
+**File:** `src/pages/experience.astro`
+
+Update your work history and education:
+
+1. Edit the `experience` array for job positions
+2. Edit the education section at the bottom
+3. Each position includes:
+   - Title, company, location
+   - Start/end dates
+   - Description and achievements
+   - Technologies used
+   - Project value
+
+### Skills Page
+
+**File:** `src/pages/skills.astro`
+
+Manage your technical skills by category:
+
+1. Find the `skillCategories` array
+2. Each category contains:
+   - Category name and description
+   - Individual skills with:
+     - Skill name
+     - Level (expert, advanced, intermediate)
+     - Years of experience
+
+### Contact Page
+
+**File:** `src/pages/contact.astro`
+
+The contact page displays:
+- Email address
+- Location
+- LinkedIn and GitHub links
+- Areas of expertise
+- Professional status
+
+To update contact details, edit the file directly or see [Updating Contact Information](#updating-contact-information) section.
 
 ---
 
