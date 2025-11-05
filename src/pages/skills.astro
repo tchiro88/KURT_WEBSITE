@@ -1,0 +1,266 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/ui/Card.astro';
+import Badge from '@/components/ui/Badge.astro';
+import { Award, TrendingUp, Star } from 'lucide-react';
+
+const skillCategories = [
+  {
+    id: 'control-systems',
+    name: 'Control Systems & Programming',
+    description: 'Industrial control system design and implementation',
+    skills: [
+      { name: 'Rockwell Allen-Bradley', level: 'expert', yearsOfExperience: 10 },
+      { name: 'Schneider Electric', level: 'advanced', yearsOfExperience: 8 },
+      { name: 'Siemens S7', level: 'advanced', yearsOfExperience: 6 },
+      { name: 'Ladder Logic', level: 'expert', yearsOfExperience: 10 },
+      { name: 'Structured Text', level: 'advanced', yearsOfExperience: 8 },
+      { name: 'Function Block Diagram', level: 'advanced', yearsOfExperience: 7 },
+    ],
+  },
+  {
+    id: 'scada-hmi',
+    name: 'SCADA & HMI Systems',
+    description: 'Supervisory control and human-machine interface development',
+    skills: [
+      { name: 'Ignition SCADA', level: 'advanced', yearsOfExperience: 5 },
+      { name: 'PlantPAX', level: 'advanced', yearsOfExperience: 6 },
+      { name: 'Wonderware', level: 'intermediate', yearsOfExperience: 4 },
+      { name: 'HMI Design', level: 'expert', yearsOfExperience: 10 },
+    ],
+  },
+  {
+    id: 'iiot-modern',
+    name: 'IIoT & Modern Automation',
+    description: 'Industry 4.0 technologies and edge computing',
+    skills: [
+      { name: 'Node-RED', level: 'expert', yearsOfExperience: 4 },
+      { name: 'MQTT / Sparkplug B', level: 'advanced', yearsOfExperience: 3 },
+      { name: 'InfluxDB', level: 'advanced', yearsOfExperience: 3 },
+      { name: 'Grafana', level: 'advanced', yearsOfExperience: 3 },
+      { name: 'Docker', level: 'advanced', yearsOfExperience: 4 },
+      { name: 'Edge Computing', level: 'advanced', yearsOfExperience: 3 },
+    ],
+  },
+  {
+    id: 'protocols',
+    name: 'Industrial Protocols',
+    description: 'Communication protocols and networking',
+    skills: [
+      { name: 'Modbus/TCP', level: 'expert', yearsOfExperience: 10 },
+      { name: 'Ethernet/IP', level: 'expert', yearsOfExperience: 10 },
+      { name: 'OPC-UA', level: 'advanced', yearsOfExperience: 5 },
+      { name: 'DNP3', level: 'intermediate', yearsOfExperience: 3 },
+      { name: 'Industrial Ethernet', level: 'expert', yearsOfExperience: 10 },
+    ],
+  },
+  {
+    id: 'development',
+    name: 'Software Development',
+    description: 'Programming and development tools',
+    skills: [
+      { name: 'Python', level: 'advanced', yearsOfExperience: 5 },
+      { name: 'JavaScript', level: 'advanced', yearsOfExperience: 4 },
+      { name: 'SQL', level: 'advanced', yearsOfExperience: 6 },
+      { name: 'Git/GitHub', level: 'advanced', yearsOfExperience: 5 },
+      { name: 'Linux', level: 'advanced', yearsOfExperience: 6 },
+    ],
+  },
+];
+
+const getLevelColor = (level: string) => {
+  switch (level) {
+    case 'expert':
+      return 'text-accent-400';
+    case 'advanced':
+      return 'text-primary-400';
+    case 'intermediate':
+      return 'text-steel-300';
+    default:
+      return 'text-steel-400';
+  }
+};
+
+const getLevelBadge = (level: string) => {
+  switch (level) {
+    case 'expert':
+      return 'accent';
+    case 'advanced':
+      return 'primary';
+    default:
+      return 'default';
+  }
+};
+
+const pageTitle = 'Skills & Expertise | Kurt Adams';
+const pageDescription = 'Technical expertise in industrial automation, control systems, IIoT, and software development';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="pt-32 pb-20">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="text-center mb-16 md:mb-20">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient-full">Technical Expertise</span>
+        </h1>
+        <p class="text-lg md:text-xl text-steel-300 max-w-3xl mx-auto">
+          Comprehensive skill set spanning industrial automation, modern IIoT technologies, and software development
+        </p>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="space-y-12">
+        {skillCategories.map((category) => (
+          <div class="max-w-5xl mx-auto">
+            <Card variant="glass" className="p-0 overflow-hidden">
+              <!-- Category Header -->
+              <div class="bg-gradient-to-r from-primary-500/10 via-accent-500/10 to-primary-500/10 p-6 md:p-8 border-b border-steel-800/30">
+                <div class="flex items-start justify-between mb-3">
+                  <h2 class="text-2xl md:text-3xl font-bold text-text-primary">
+                    {category.name}
+                  </h2>
+                  <Award className="w-8 h-8 text-primary-400" />
+                </div>
+                <p class="text-steel-300">
+                  {category.description}
+                </p>
+              </div>
+
+              <!-- Skills List -->
+              <div class="p-6 md:p-8">
+                <div class="grid md:grid-cols-2 gap-6">
+                  {category.skills.map((skill) => (
+                    <div class="group">
+                      <!-- Skill Header -->
+                      <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                          <Star className={`w-5 h-5 ${getLevelColor(skill.level)}`} />
+                          <h3 class="font-semibold text-text-primary group-hover:text-primary-400 transition-colors">
+                            {skill.name}
+                          </h3>
+                        </div>
+                        <Badge variant={getLevelBadge(skill.level) as any} className="text-xs uppercase">
+                          {skill.level}
+                        </Badge>
+                      </div>
+
+                      <!-- Experience Bar -->
+                      <div class="space-y-2">
+                        <div class="flex items-center justify-between text-xs text-steel-400">
+                          <span>Experience</span>
+                          <span class="font-mono">{skill.yearsOfExperience}+ years</span>
+                        </div>
+                        <div class="h-2 bg-steel-900/50 rounded-full overflow-hidden border border-steel-800/30">
+                          <div
+                            class={`h-full rounded-full transition-all duration-500 ${
+                              skill.level === 'expert'
+                                ? 'bg-gradient-to-r from-accent-500 to-accent-400 w-full'
+                                : skill.level === 'advanced'
+                                ? 'bg-gradient-to-r from-primary-500 to-primary-400 w-4/5'
+                                : 'bg-gradient-to-r from-steel-500 to-steel-400 w-3/5'
+                            }`}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </div>
+        ))}
+      </div>
+
+      <!-- Certifications & Highlights -->
+      <div class="mt-20 max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+          <span class="text-gradient-full">Professional Highlights</span>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <Card variant="glass">
+            <div class="text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-500/10 border border-primary-500/30 flex items-center justify-center">
+                <TrendingUp className="w-8 h-8 text-primary-400" />
+              </div>
+              <h3 class="text-2xl font-bold text-primary-400 mb-2 font-mono">
+                $10M+
+              </h3>
+              <p class="text-steel-300 text-sm">
+                Total Project Value Delivered
+              </p>
+            </div>
+          </Card>
+
+          <Card variant="glass">
+            <div class="text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-accent-500/10 border border-accent-500/30 flex items-center justify-center">
+                <Award className="w-8 h-8 text-accent-400" />
+              </div>
+              <h3 class="text-2xl font-bold text-accent-400 mb-2 font-mono">
+                50+
+              </h3>
+              <p class="text-steel-300 text-sm">
+                Systems Integrated
+              </p>
+            </div>
+          </Card>
+
+          <Card variant="glass">
+            <div class="text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-500/10 border border-primary-500/30 flex items-center justify-center">
+                <Star className="w-8 h-8 text-primary-400" />
+              </div>
+              <h3 class="text-2xl font-bold text-primary-400 mb-2 font-mono">
+                10+
+              </h3>
+              <p class="text-steel-300 text-sm">
+                Years of Experience
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+
+      <!-- Industry Focus -->
+      <div class="mt-20 max-w-5xl mx-auto">
+        <Card variant="glass">
+          <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
+            <span class="text-gradient-full">Industry Focus</span>
+          </h2>
+          <div class="grid md:grid-cols-4 gap-6">
+            {[
+              { name: 'Mining Automation', icon: '⛏️' },
+              { name: 'IIoT Platforms', icon: '🔗' },
+              { name: 'SCADA Systems', icon: '📊' },
+              { name: 'Remote Operations', icon: '🎮' }
+            ].map((industry) => (
+              <div class="text-center p-4 rounded-lg bg-steel-900/30 border border-steel-800/30 hover:border-primary-500/30 transition-all">
+                <div class="text-4xl mb-3">{industry.icon}</div>
+                <p class="text-sm font-semibold text-steel-300">
+                  {industry.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-20 text-center">
+        <div class="glass-card inline-block">
+          <h2 class="text-2xl md:text-3xl font-bold text-text-primary mb-4">
+            Let's Build Something Amazing
+          </h2>
+          <p class="text-steel-300 mb-6 max-w-2xl">
+            Looking for an automation expert who can bridge technical depth with business value?
+          </p>
+          <a href="/contact" class="btn-primary">
+            Start a Conversation
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
