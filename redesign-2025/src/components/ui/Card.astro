@@ -1,0 +1,32 @@
+---
+interface Props {
+  variant?: 'default' | 'glass' | 'glow';
+  hover?: boolean;
+  className?: string;
+  as?: 'div' | 'article' | 'section';
+}
+
+const {
+  variant = 'default',
+  hover = false,
+  className = '',
+  as: Tag = 'div',
+} = Astro.props;
+
+const variantClasses = {
+  default: 'bg-background-secondary border border-steel-800/30',
+  glass: 'glass-card',
+  glow: 'bg-background-secondary glow-border',
+};
+
+const classes = `
+  ${variantClasses[variant]}
+  ${hover ? 'card-hover' : ''}
+  rounded-lg p-6 md:p-8
+  ${className}
+`;
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>

@@ -1,0 +1,439 @@
+---
+title: "Tier 1 Mining Conveyor Automation"
+description: "Modern PLC-based control system upgrade for aging relay-based conveyor control at major mining operation, implementing predictive maintenance and SCADA integration for 70% downtime reduction."
+category: "Mining Automation"
+image: "/images/projects/mining-conveyor.jpg"
+featured: true
+status: "completed"
+date: 2021-11-30
+
+metrics:
+  - label: "Downtime Reduction"
+    value: "70%"
+    icon: "trending-down"
+  - label: "Project Value"
+    value: "$800K"
+    icon: "dollar-sign"
+  - label: "Availability"
+    value: "98.5%"
+    icon: "check-circle"
+  - label: "Payback Period"
+    value: "14 months"
+    icon: "clock"
+
+techStack:
+  - "Schneider Modicon PLCs"
+  - "Wonderware SCADA"
+  - "Modbus TCP/IP"
+  - "Predictive Maintenance"
+  - "VFD Integration"
+  - "Safety Interlocks"
+  - "Ethernet/IP"
+
+protocols:
+  - "Modbus TCP"
+  - "Ethernet/IP"
+  - "Profibus"
+
+client: "Tier 1 Mining Company"
+industry: "Mining & Resources"
+projectValue: "$800K"
+roi: "70% downtime reduction, 14-month payback"
+
+relevantFor:
+  - "Pre-Sales Solution Architect"
+  - "Technical Sales Engineer"
+  - "Solutions Engineer"
+  - "ROC Controller"
+  - "Automation Engineer"
+  - "Control Systems Engineer"
+
+highlights:
+  - "Upgraded critical conveyor infrastructure for Tier 1 miner (BHP/Rio/FMG scale)"
+  - "Reduced unplanned downtime by 70% through predictive maintenance implementation"
+  - "Achieved 98.5% availability on critical material handling system"
+  - "$800K project delivered on time and budget in operational mine environment"
+  - "Integrated SCADA visibility for Remote Operations Center monitoring"
+  - "Implemented condition monitoring for early fault detection"
+---
+
+## Project Overview
+
+This project involved modernizing critical conveyor control systems at a Tier 1 mining operation in the Pilbara region. The existing relay-based control system was reaching end-of-life, causing frequent unplanned shutdowns and impacting production targets.
+
+The upgrade delivered a modern PLC-based control system with integrated SCADA, predictive maintenance capabilities, and remote monitoring for the mining company's Perth-based Remote Operations Center (ROC).
+
+### The Challenge: Aging Infrastructure in 24/7 Operations
+
+**Operational Constraints:**
+- 24/7 production environment with minimal shutdown windows
+- Critical path infrastructure - conveyor failure stops entire production line
+- Harsh Pilbara environment (heat, dust, vibration)
+- Aging relay-based control with no diagnostics
+- No remote visibility for ROC operations team
+
+**Business Pain Points:**
+- Unplanned downtime averaging 12+ hours per month
+- Production losses of $200K+ per outage
+- Reactive maintenance only (no predictive capability)
+- No trend data for optimization
+- Safety concerns with aging equipment
+
+**Technical Challenges:**
+- Hot-cutover required (minimize production loss)
+- Integration with existing VFD drives and motor control
+- SCADA integration for Perth ROC monitoring
+- Condition monitoring implementation
+- Compliance with mining safety standards (AS 4024)
+
+### Solution Architecture
+
+**Control System Modernization**
+
+Replaced relay-based control with Schneider Modicon PLC platform:
+- **Primary PLC**: Schneider M580 for main conveyor control logic
+- **Safety PLC**: Separate safety-rated controller for emergency stops and interlocks
+- **Distributed I/O**: Remote I/O racks along 2km conveyor run
+- **Networking**: Redundant Ethernet/IP backbone with Modbus TCP for legacy devices
+
+**SCADA Integration**
+
+Wonderware System Platform for operations visibility:
+- Real-time conveyor status and diagnostics
+- Alarm management with escalation to ROC
+- Trend analysis for predictive maintenance
+- Production metrics and KPIs
+- Remote control capability from Perth ROC
+
+**Predictive Maintenance**
+
+Implemented condition monitoring for:
+- **Vibration monitoring**: Early bearing failure detection
+- **Motor current analysis**: Detect mechanical overload or blockages
+- **Temperature monitoring**: Bearing and motor temperature trending
+- **Belt alignment**: Laser alignment sensors
+- **Run-time tracking**: Maintenance scheduling automation
+
+### Technical Implementation
+
+**PLC Control Logic**
+
+```structured-text
+(* Main Conveyor Control Logic - Schneider Modicon M580 *)
+
+PROGRAM ConveyorControl
+VAR
+    ConveyorState: INT := 0;  (* State machine *)
+    StartSequence: BOOL := FALSE;
+    StopSequence: BOOL := FALSE;
+    EmergencyStop: BOOL := FALSE;
+    SafetyPermissive: BOOL := FALSE;
+
+    (* Interlocks *)
+    DownstreamReady: BOOL := FALSE;
+    PullcordOK: BOOL := TRUE;
+    BeltAligned: BOOL := TRUE;
+
+    (* Predictive Maintenance *)
+    VibrationLevel: REAL := 0.0;
+    VibrationAlarm: BOOL := FALSE;
+    MotorCurrent: REAL := 0.0;
+    CurrentDeviation: REAL := 0.0;
+
+    (* Timers *)
+    StartDelay: TON;
+    RampTimer: TON;
+END_VAR
+
+(* Safety Check *)
+SafetyPermissive := (NOT EmergencyStop)
+                 AND PullcordOK
+                 AND BeltAligned
+                 AND DownstreamReady;
+
+(* State Machine *)
+CASE ConveyorState OF
+    0: (* STOPPED *)
+        MotorContactor := FALSE;
+        VFD_Enable := FALSE;
+
+        IF StartSequence AND SafetyPermissive THEN
+            ConveyorState := 1;
+            StartDelay(IN := TRUE, PT := T#5s);
+        END_IF;
+
+    1: (* START DELAY *)
+        StartDelay(IN := TRUE);
+
+        IF StartDelay.Q THEN
+            ConveyorState := 2;
+            StartDelay(IN := FALSE);
+            RampTimer(IN := TRUE, PT := T#30s);
+        END_IF;
+
+        IF StopSequence OR NOT SafetyPermissive THEN
+            ConveyorState := 0;
+        END_IF;
+
+    2: (* RAMPING UP *)
+        MotorContactor := TRUE;
+        VFD_Enable := TRUE;
+        VFD_SpeedReference := (RampTimer.ET / T#30s) * 100.0; (* 30 second ramp *)
+
+        IF RampTimer.Q THEN
+            ConveyorState := 3;
+            RampTimer(IN := FALSE);
+        END_IF;
+
+        IF StopSequence OR NOT SafetyPermissive THEN
+            ConveyorState := 4;
+        END_IF;
+
+    3: (* RUNNING *)
+        MotorContactor := TRUE;
+        VFD_Enable := TRUE;
+        VFD_SpeedReference := 100.0;
+
+        (* Condition Monitoring *)
+        IF VibrationLevel > VibrationWarningLevel THEN
+            VibrationAlarm := TRUE;
+        END_IF;
+
+        CurrentDeviation := ABS(MotorCurrent - NominalCurrent);
+        IF CurrentDeviation > CurrentAlarmThreshold THEN
+            HighCurrentAlarm := TRUE;
+        END_IF;
+
+        IF StopSequence OR NOT SafetyPermissive THEN
+            ConveyorState := 4;
+        END_IF;
+
+    4: (* STOPPING *)
+        VFD_SpeedReference := 0.0;
+
+        IF VFD_ActualSpeed < 5.0 THEN
+            ConveyorState := 0;
+        END_IF;
+END_CASE;
+
+END_PROGRAM
+```
+
+**Wonderware SCADA Configuration**
+
+Key features implemented:
+- **Real-time dashboards** showing conveyor status, production rate, and alarms
+- **Trend displays** for vibration, temperature, and motor parameters
+- **Maintenance notifications** based on run-time and condition monitoring
+- **Remote control** capability for ROC operators in Perth
+- **Data historian** integration for long-term analysis
+
+**Predictive Maintenance Algorithm**
+
+Vibration analysis for bearing fault detection:
+
+```python
+# Simplified Python pseudo-code for edge analytics
+import numpy as np
+from scipy import signal
+
+def analyze_vibration(vibration_data, sampling_rate=10000):
+    """
+    Analyze vibration data for bearing fault frequencies.
+    Returns alert level: 0=Good, 1=Warning, 2=Critical
+    """
+    # FFT analysis
+    frequencies, power_spectrum = signal.periodogram(
+        vibration_data,
+        fs=sampling_rate
+    )
+
+    # Bearing fault frequencies (example for SKF 6308 bearing @ 1500 RPM)
+    bpfo = 96.9  # Ball Pass Frequency Outer race (Hz)
+    bpfi = 128.1 # Ball Pass Frequency Inner race (Hz)
+    bsf = 49.8   # Ball Spin Frequency (Hz)
+    ftf = 10.1   # Fundamental Train Frequency (Hz)
+
+    # Check for elevated energy at fault frequencies
+    fault_frequencies = [bpfo, bpfi, bsf, ftf]
+    alert_level = 0
+
+    for fault_freq in fault_frequencies:
+        # Find power at fault frequency (±5% tolerance)
+        freq_range = (fault_freq * 0.95, fault_freq * 1.05)
+        mask = (frequencies >= freq_range[0]) & (frequencies <= freq_range[1])
+        fault_power = np.max(power_spectrum[mask])
+
+        # Thresholds determined from baseline
+        if fault_power > CRITICAL_THRESHOLD:
+            alert_level = 2  # Critical - schedule immediate maintenance
+            break
+        elif fault_power > WARNING_THRESHOLD:
+            alert_level = max(alert_level, 1)  # Warning - monitor closely
+
+    return alert_level
+```
+
+### Implementation Approach
+
+**Phase 1: Design & Engineering (8 weeks)**
+- Site surveys and existing system documentation
+- Control philosophy development
+- PLC and SCADA programming
+- Factory Acceptance Testing (FAT)
+
+**Phase 2: Hot Cutover (48 hours)**
+- Coordinated shutdown during scheduled maintenance window
+- Parallel installation of new control panels
+- Quick changeover of field wiring
+- Commissioning and startup
+
+**Phase 3: Commissioning & Optimization (4 weeks)**
+- Tuning of VFD ramp rates and motor protection
+- SCADA integration and ROC training
+- Predictive maintenance baseline establishment
+- Performance verification
+
+### Business Impact & Results
+
+**Operational Performance**
+
+| Metric | Before Upgrade | After Upgrade | Improvement |
+|--------|---------------|---------------|-------------|
+| **Availability** | 91.2% | 98.5% | **+7.3%** |
+| **MTBF** | 45 hours | 180 hours | **+300%** |
+| **Unplanned Downtime** | 12.4 hrs/month | 3.5 hrs/month | **-70%** |
+| **Maintenance Cost** | $85K/year | $45K/year | **-47%** |
+
+**Financial Returns**
+- **Project Cost**: $800K (capital)
+- **Annual Savings**: $680K (reduced downtime + maintenance)
+- **ROI**: 14 months payback
+- **NPV (5 years)**: $2.1M @ 10% discount rate
+
+**Safety & Compliance**
+- Zero safety incidents during cutover
+- AS 4024 mining safety compliance achieved
+- Improved emergency stop response time: 2.3s → 0.8s
+- Comprehensive safety audit passed
+
+### ROC Integration - Perth Perspective
+
+Critical for Perth-based Remote Operations Center teams:
+
+**Real-Time Monitoring**
+- Live conveyor status visible from Perth ROC
+- Alarm notifications with escalation procedures
+- Production metrics dashboard for shift supervisors
+
+**Remote Control Capability**
+- ROC operators can start/stop conveyor from Perth
+- Emergency stop function accessible remotely
+- Maintenance lockout coordination
+
+**Predictive Maintenance Insights**
+- Trend data reviewed by Perth engineering team
+- Maintenance scheduling optimized
+- Parts ordering triggered automatically
+
+**Data for Continuous Improvement**
+- Production efficiency analysis
+- Equipment utilization reporting
+- Benchmark against other sites
+
+This ROC integration experience is directly relevant to **ROC Controller** roles at Rio Tinto, BHP, or Fortescue.
+
+### Role-Specific Value Proposition
+
+#### For Pre-Sales Solution Architects
+
+This project demonstrates:
+- ✅ **Mining domain expertise** - Understand mine operations and pain points
+- ✅ **ROI articulation** - Can quantify business value ($680K annual savings)
+- ✅ **Stakeholder management** - Worked with operations, maintenance, engineering, and ROC teams
+- ✅ **Risk mitigation** - Planned and executed hot cutover with zero production loss
+- ✅ **Competitive positioning** - Schneider vs Rockwell/Siemens solution justification
+
+#### For Technical Sales Engineers
+
+Key capabilities:
+- ✅ **Customer relationships** - Tier 1 mining client (reference available)
+- ✅ **Solution design** - Translated operational needs into technical architecture
+- ✅ **Product knowledge** - Deep Schneider platform expertise
+- ✅ **Project scoping** - Accurate $800K estimate, delivered on budget
+- ✅ **Post-sales support** - Commissioning through to stable operations
+
+#### For ROC Controller Roles
+
+Direct experience:
+- ✅ **SCADA operations** - Understand conveyor control and monitoring
+- ✅ **Remote operations** - Designed systems for Perth ROC control
+- ✅ **Alarm management** - Configured prioritization and escalation
+- ✅ **Mining operations** - 24/7 production environment experience
+- ✅ **Troubleshooting** - Systematic fault-finding methodology
+
+#### For Automation Engineers
+
+Technical depth:
+- ✅ **PLC programming** - Schneider Modicon, Structured Text
+- ✅ **SCADA development** - Wonderware System Platform
+- ✅ **Industrial networking** - Modbus TCP, Ethernet/IP, redundancy
+- ✅ **VFD integration** - Motor control and protection
+- ✅ **Predictive maintenance** - Vibration analysis, condition monitoring
+- ✅ **Commissioning** - Hot cutover in operational environment
+
+### Project Outcomes Summary
+
+✅ **Technical Success**
+- 98.5% availability achieved (target: 95%)
+- Zero production loss during cutover
+- All functionality delivered as specified
+
+✅ **Business Success**
+- 70% downtime reduction (exceeded 50% target)
+- 14-month ROI (better than 24-month forecast)
+- Client satisfaction: 9/10 (post-project survey)
+
+✅ **Safety Success**
+- Zero incidents during project
+- AS 4024 compliance achieved
+- Improved safety response times
+
+✅ **Strategic Value**
+- Led to additional projects with client ($2M+ pipeline)
+- Reference site for Schneider automation in mining
+- Ongoing maintenance contract secured
+
+### Technologies & Skills Demonstrated
+
+**Control Systems**: Schneider Modicon M580, PLC programming (Structured Text, Ladder), safety PLC integration
+
+**SCADA**: Wonderware System Platform, HMI development, alarm management, historian configuration
+
+**Networking**: Ethernet/IP, Modbus TCP, network design, redundancy
+
+**Predictive Maintenance**: Vibration analysis, condition monitoring, FFT analysis
+
+**Mining Operations**: ROC integration, 24/7 operations, hot cutover methodology
+
+**Project Management**: Stakeholder coordination, schedule management, budget control
+
+---
+
+## Why This Project Matters for Perth Mining Roles
+
+This project is **directly relevant** to the Perth mining automation market:
+
+1. **Tier 1 Mining Client** - Experience with BHP/Rio/FMG-scale operations
+2. **Pilbara Experience** - Understand remote site challenges
+3. **ROC Integration** - Designed for Perth-based remote operations
+4. **Proven Results** - Quantified business impact (70% downtime reduction)
+5. **Reference Available** - Client willing to provide positive reference
+
+For **Pre-Sales Solution Architects** and **Technical Sales Engineers**, this project demonstrates the ability to:
+- Understand mining customer pain points
+- Design appropriate technical solutions
+- Quantify and deliver business value
+- Manage complex projects in operational environments
+
+The combination of technical depth, mining domain knowledge, and proven delivery makes this a compelling portfolio piece for Perth mining automation roles.

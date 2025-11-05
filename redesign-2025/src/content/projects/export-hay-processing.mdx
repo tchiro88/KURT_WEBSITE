@@ -1,0 +1,207 @@
+---
+title: "Export Hay Processing Automation"
+description: "Complete $6M automation solution for large-scale agricultural processing facility, delivering 35% efficiency gains through integrated control systems and hydraulic power management."
+category: "Mining Automation"
+image: "/images/projects/export-hay-processing.jpg"
+featured: true
+status: "completed"
+date: 2024-06-15
+
+metrics:
+  - label: "Project Value"
+    value: "$6M"
+    icon: "dollar-sign"
+  - label: "Efficiency Gain"
+    value: "35%"
+    icon: "trending-up"
+  - label: "Safety Rating"
+    value: "SIL 2"
+    icon: "shield"
+  - label: "Timeline"
+    value: "10 months"
+    icon: "calendar"
+
+techStack:
+  - "Rockwell ControlLogix"
+  - "PlantPAX SCADA"
+  - "Ethernet/IP"
+  - "Ladder Logic"
+  - "Structured Text"
+  - "HMI Development"
+  - "Hydraulic Control Systems"
+
+protocols:
+  - "Ethernet/IP"
+  - "DeviceNet"
+  - "Modbus TCP"
+
+client: "Major Agricultural Exporter"
+industry: "Agriculture & Processing"
+projectValue: "$6M"
+roi: "35% efficiency improvement, 18-month payback"
+
+relevantFor:
+  - "Pre-Sales Solution Architect"
+  - "Technical Sales Engineer"
+  - "Solutions Engineer"
+  - "Automation Engineer"
+  - "Control Systems Engineer"
+
+highlights:
+  - "Led $6M end-to-end automation project from concept to commissioning"
+  - "Designed complete control philosophy for multi-system integration"
+  - "Achieved SIL 2 safety certification for critical safety functions"
+  - "Delivered 35% efficiency improvement through process optimization"
+  - "Managed stakeholder relationships including client, contractors, and vendors"
+  - "Integrated Rockwell PlantPAX SCADA with legacy hydraulic control systems"
+---
+
+## Project Overview
+
+This flagship project involved complete automation of an export hay processing facility, representing one of the largest agricultural automation projects in Western Australia. The scope included control system design, PLC programming, SCADA development, hydraulic power management, and safety system implementation.
+
+### The Challenge
+
+The client required a modern, safe, and efficient processing facility capable of handling high-volume export hay production. Key challenges included:
+
+- **Legacy Integration**: Interfacing new Rockwell systems with existing hydraulic control infrastructure
+- **Safety Compliance**: Meeting SIL 2 safety requirements for material handling and press operations
+- **Process Optimization**: Maximizing throughput while maintaining quality standards
+- **Stakeholder Management**: Coordinating between agricultural operations team, contractors, and equipment vendors
+
+### Solution Architecture
+
+**Control System Design**
+- Rockwell ControlLogix PLC platform as the central control system
+- PlantPAX SCADA for operator interface and process monitoring
+- Distributed I/O architecture using Ethernet/IP network
+- Redundant safety PLCs for critical safety functions
+
+**Process Control**
+- Hydraulic press control with pressure profiling
+- Material conveying and sorting automation
+- Environmental monitoring and control
+- Quality inspection integration
+
+**Safety Systems**
+- SIL 2-rated safety interlock system
+- Emergency stop network across facility
+- Light curtains and safety area scanners
+- Lockout/tagout (LOTO) integration
+
+### Technical Implementation
+
+The project leveraged my deep experience with Rockwell automation platforms:
+
+```structured-text
+// Example: Hydraulic Press Control Logic
+// Simplified structured text for press cycle management
+
+IF PressStartConditions AND SafetyPermissive THEN
+    CASE PressState OF
+        IDLE:
+            IF StartButton AND MaterialPresent THEN
+                PressState := POSITION;
+                PositionTarget := CompactPosition;
+            END_IF;
+
+        POSITION:
+            HydraulicValve := LOWER;
+            IF PositionReached(PositionTarget) THEN
+                PressState := COMPRESS;
+                PressureTimer(PT := CompressDuration);
+            END_IF;
+
+        COMPRESS:
+            PressureControl(SP := TargetPressure);
+            IF PressureTimer.DN THEN
+                PressState := RELEASE;
+            END_IF;
+
+        RELEASE:
+            HydraulicValve := RAISE;
+            IF TopPositionReached THEN
+                PressState := IDLE;
+                CycleComplete := TRUE;
+            END_IF;
+    END_CASE;
+END_IF;
+```
+
+### Business Impact
+
+**Operational Efficiency**
+- 35% increase in processing throughput
+- Reduced manual intervention by 60%
+- Decreased cycle time per bale from 90s to 55s
+
+**Safety Improvements**
+- Zero safety incidents since commissioning
+- SIL 2 certification achieved
+- Comprehensive safety audit compliance
+
+**Financial Returns**
+- $6M total project value
+- 18-month ROI based on efficiency gains
+- Reduced labor costs by 40%
+
+### Role-Specific Highlights
+
+#### For Pre-Sales Solution Architects
+This project demonstrates my ability to:
+- **Translate business requirements** into technical solutions
+- **Manage complex stakeholder relationships** across client, contractors, and vendors
+- **Deliver compelling technical presentations** to executive and operational teams
+- **Provide accurate project scoping** and cost estimation ($6M project delivered on budget)
+- **Navigate Perth agricultural and export industries** with domain expertise
+
+#### For Technical Sales Engineers
+Key sales engineering capabilities shown:
+- **Deep product knowledge** of Rockwell automation platforms (ControlLogix, PlantPAX)
+- **Solution design** that addresses customer pain points (efficiency, safety, ROI)
+- **Competitive positioning** against alternative automation platforms
+- **Post-sales technical support** through commissioning and beyond
+- **Reference account development** - client willing to provide references
+
+#### For Automation Engineers
+Technical depth demonstrated:
+- **PLC programming** in Ladder Logic and Structured Text
+- **SCADA development** using PlantPAX
+- **Industrial networking** with Ethernet/IP, DeviceNet, Modbus TCP
+- **Safety system design** to SIL 2 standards
+- **Hydraulic control integration** with electronic systems
+- **Commissioning and startup** leadership
+
+### Project Outcomes
+
+- ✅ Delivered on time and on budget
+- ✅ Exceeded efficiency targets (35% vs 25% goal)
+- ✅ Zero safety incidents since commissioning
+- ✅ Client satisfaction: 10/10 (willing reference)
+- ✅ Ongoing maintenance contract secured
+
+### Technologies & Skills
+
+**PLC Programming**: Rockwell ControlLogix, Ladder Logic, Structured Text, Function Blocks
+
+**SCADA**: PlantPAX configuration, HMI development, alarm management, historian setup
+
+**Networking**: Ethernet/IP architecture, network design, device configuration
+
+**Safety**: SIL 2 design, risk assessment, safety PLC programming
+
+**Project Management**: Scope definition, stakeholder management, budget tracking, schedule coordination
+
+---
+
+## Why This Matters for Perth Mining Automation
+
+While this project was agricultural, the technical challenges and solutions are directly transferable to mining automation:
+
+- **Hydraulic control systems** → Mining mobile equipment, conveyors
+- **Material handling automation** → Ore processing, conveying systems
+- **SCADA integration** → ROC (Remote Operations Center) displays
+- **Safety system design** → Mining safety compliance (AS 4024)
+- **Large-scale project management** → Mining capital projects
+
+The skills, methodologies, and Rockwell platform expertise demonstrated here are in high demand across Perth mining automation roles, particularly for Pre-Sales Solution Architects and Technical Sales Engineers who need to bridge technical depth with customer-facing communication.

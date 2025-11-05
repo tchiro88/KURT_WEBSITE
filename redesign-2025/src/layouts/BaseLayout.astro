@@ -1,0 +1,136 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Kurt Adams | Technical Solutions Engineer | Mining Automation Specialist',
+  description = 'Perth-based Technical Solutions Engineer specializing in Mining Automation, IIoT, SCADA, and PLC systems. 10+ years experience in industrial automation with $6M+ in projects delivered. Expert in Ignition SCADA, Node-RED, MQTT, and mining operations center control.',
+  keywords = [
+    'Technical Solutions Engineer Perth',
+    'Mining Automation',
+    'Pre-Sales Solution Architect',
+    'Ignition SCADA',
+    'IIoT Engineer',
+    'ROC Controller Perth',
+    'SCADA Engineer',
+    'PLC Programming',
+    'Industrial Automation Perth',
+    'Node-RED',
+    'MQTT Sparkplug B',
+    'Mining Technology',
+    'BHP Rio Tinto Fortescue',
+  ],
+  ogImage = '/images/og-image.jpg',
+  canonical,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const canonicalURL = canonical || new URL(currentPath, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="author" content="Kurt Adams" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#00ccd6" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kurt Adams",
+        "jobTitle": "Technical Solutions Engineer",
+        "description": "Mining Automation Specialist and IIoT Engineer based in Perth, Western Australia",
+        "url": "https://kurt-adams.autosapien.ai",
+        "sameAs": [
+          "https://linkedin.com/in/kurt-adams",
+          "https://github.com/kurt-adams"
+        ],
+        "knowsAbout": [
+          "Industrial Automation",
+          "Mining Automation",
+          "SCADA Systems",
+          "IIoT Platforms",
+          "PLC Programming",
+          "Ignition SCADA",
+          "Node-RED",
+          "MQTT",
+          "Remote Operations Centers"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Perth",
+          "addressRegion": "WA",
+          "addressCountry": "Australia"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gradient-command-center">
+    <!-- Grid Background -->
+    <div class="fixed inset-0 grid-background pointer-events-none opacity-50"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10">
+      <slot />
+    </div>
+
+    <!-- CRT Scan Line Effect (subtle) -->
+    <div class="fixed inset-0 pointer-events-none opacity-5">
+      <div class="scan-line"></div>
+    </div>
+
+    <!-- Smooth Scroll Polyfill for older browsers -->
+    <script>
+      // Polyfill for browsers that don't support scroll-behavior
+      if (!('scrollBehavior' in document.documentElement.style)) {
+        import('smoothscroll-polyfill').then((smoothscroll) => {
+          smoothscroll.polyfill();
+        });
+      }
+    </script>
+  </body>
+</html>
