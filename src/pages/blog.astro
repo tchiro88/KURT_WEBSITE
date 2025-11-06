@@ -1,0 +1,81 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/ui/Card.astro';
+import Badge from '@/components/ui/Badge.astro';
+import { Calendar, Clock, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const pageTitle = 'Blog | Kurt Adams';
+const pageDescription = 'Articles and insights on industrial automation, IIoT, and control systems';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="pt-32 pb-20">
+    <div class="container">
+      <!-- Back to Home -->
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors mb-8 group">
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Back to Home</span>
+      </a>
+
+      <!-- Page Header -->
+      <div class="text-center mb-16 md:mb-20">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient-full">Blog & Insights</span>
+        </h1>
+        <p class="text-lg md:text-xl text-steel-300 max-w-3xl mx-auto">
+          Articles and insights on industrial automation, IIoT, and control systems
+        </p>
+      </div>
+
+      <!-- Coming Soon Message -->
+      <div class="max-w-3xl mx-auto text-center">
+        <Card variant="glass">
+          <div class="py-12">
+            <div class="text-6xl mb-6">📝</div>
+            <h2 class="text-3xl font-bold text-text-primary mb-4">
+              Content Coming Soon
+            </h2>
+            <p class="text-steel-300 mb-8 max-w-xl mx-auto">
+              I'm currently working on articles covering automation best practices, IIoT architecture, and real-world project case studies. Check back soon!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="/projects" class="btn-primary">
+                View Projects
+              </a>
+              <a href="/contact" class="btn-outline">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      <!-- Planned Topics -->
+      <div class="mt-16 max-w-5xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-10">
+          <span class="text-gradient-full">Planned Topics</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {[
+            { title: 'Unified Namespace Architecture', category: 'IIoT' },
+            { title: 'PLC Programming Best Practices', category: 'Control Systems' },
+            { title: 'SCADA System Design Patterns', category: 'HMI/SCADA' },
+            { title: 'Mining Automation Challenges', category: 'Industry Focus' },
+            { title: 'Edge Computing in Industry', category: 'Industry 4.0' },
+            { title: 'Cybersecurity for OT Networks', category: 'Security' },
+          ].map((topic) => (
+            <Card variant="glass" className="hover:border-primary-500/30 transition-all">
+              <Badge variant="primary" className="text-xs mb-3">{topic.category}</Badge>
+              <h3 class="font-semibold text-text-primary mb-2">
+                {topic.title}
+              </h3>
+              <p class="text-sm text-steel-400">
+                Article in development
+              </p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

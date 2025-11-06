@@ -1,0 +1,249 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/ui/Card.astro';
+import Badge from '@/components/ui/Badge.astro';
+import { MapPin, Calendar, TrendingUp, CheckCircle2, ArrowLeft } from 'lucide-react';
+
+const experience = [
+  {
+    id: 'national-bdm',
+    title: 'National Business Development Manager - Industrial Automation',
+    company: 'Waste, Recycling, and Agriculture Sectors',
+    location: 'Perth, WA',
+    startDate: 'August 2023',
+    current: true,
+    description: 'Leading automation engineering solutions across waste, recycling, and agriculture sectors with focus on control systems design and implementation.',
+    achievements: [
+      'Delivered $6M export hay press project with complete control system design',
+      'Successfully re-engineered ABB robot integration ($100K automation upgrade)',
+      'Developed standardized automation frameworks for $100K-$1M equipment range',
+    ],
+    technologies: [
+      'Rockwell Allen-Bradley',
+      'PlantPAX',
+      'ABB Robotics',
+      'Hydraulic Control',
+      'SCADA',
+    ],
+    projectValue: '$6M+',
+  },
+  {
+    id: 'cooper-fluid',
+    title: 'Technical Sales Representative - Mining & Offshore',
+    company: 'Cooper Fluid Systems',
+    location: 'Perth, WA',
+    startDate: 'January 2020',
+    endDate: 'July 2023',
+    current: false,
+    description: 'Scoped and delivered automation retrofit projects for tier 1 mining operations, integrating modern control systems with existing infrastructure.',
+    achievements: [
+      'Delivered $2M+ mining automation projects across multiple sites',
+      'Integrated new equipment into existing DCS and PLC control infrastructure',
+      'Achieved 10% revenue growth through innovative automation solutions',
+      'Established $1.5M first-year value in new mining automation opportunities',
+    ],
+    technologies: [
+      'Schneider Electric',
+      'Siemens S7',
+      'DCS Integration',
+      'Modbus',
+      'Industrial Networks',
+    ],
+    projectValue: '$2M+',
+  },
+  {
+    id: 'noble-pilbara',
+    title: 'Technical Representative - Pilbara Mining',
+    company: 'A. Noble & Son P/L',
+    location: 'Pilbara, WA',
+    startDate: 'October 2015',
+    endDate: 'August 2017',
+    current: false,
+    description: 'Delivered commissioning, maintenance automation, and condition monitoring systems across Pilbara mining operations.',
+    achievements: [
+      'Successfully onboarded Roy Hill and FMG sites within 3 months',
+      'Delivered $2M project portfolio including automated rope-changeout systems',
+      'Implemented maintenance automation and condition monitoring',
+    ],
+    technologies: [
+      'NDT Services',
+      'Condition Monitoring',
+      'Automated Systems',
+      'Mining Operations',
+    ],
+    projectValue: '$2M',
+  },
+];
+
+const pageTitle = 'Experience | Kurt Adams';
+const pageDescription = 'Professional experience in industrial automation, control systems, and project engineering';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="pt-32 pb-20">
+    <div class="container">
+      <!-- Back to Home -->
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors mb-8 group">
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Back to Home</span>
+      </a>
+
+      <!-- Page Header -->
+      <div class="text-center mb-16 md:mb-20">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient-full">Professional Experience</span>
+        </h1>
+        <p class="text-lg md:text-xl text-steel-300 max-w-3xl mx-auto">
+          10+ years of progressive experience in industrial automation and control systems engineering
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Timeline Line -->
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-accent-500 to-primary-500 opacity-30"></div>
+
+        <!-- Experience Items -->
+        <div class="space-y-12 md:space-y-16">
+          {experience.map((exp, index) => (
+            <div class={`relative ${index % 2 === 0 ? 'md:pr-[50%] md:pl-0' : 'md:pl-[50%] md:pr-0'}`}>
+              <!-- Timeline Dot -->
+              <div class="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary-500 border-4 border-background-primary shadow-glow-primary"></div>
+
+              <Card variant="glass" hover={true}>
+                <!-- Header -->
+                <div class="mb-4">
+                  <div class="flex items-start justify-between mb-2">
+                    <Badge variant={exp.current ? 'accent' : 'primary'} className="text-xs">
+                      {exp.current ? 'Current' : 'Past'}
+                    </Badge>
+                    {exp.projectValue && (
+                      <div class="flex items-center gap-1 text-accent-400 text-sm font-mono font-bold">
+                        <TrendingUp className="w-4 h-4" />
+                        {exp.projectValue}
+                      </div>
+                    )}
+                  </div>
+
+                  <h3 class="text-xl md:text-2xl font-bold text-text-primary mb-2">
+                    {exp.title}
+                  </h3>
+
+                  <p class="text-primary-400 font-semibold mb-3">
+                    {exp.company}
+                  </p>
+
+                  <div class="flex flex-wrap gap-4 text-sm text-steel-400">
+                    <div class="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-accent-400" />
+                      {exp.location}
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-accent-400" />
+                      {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-steel-300 mb-4">
+                  {exp.description}
+                </p>
+
+                <!-- Achievements -->
+                <div class="mb-4">
+                  <h4 class="text-sm font-semibold text-primary-400 uppercase tracking-wider mb-3">
+                    Key Achievements
+                  </h4>
+                  <ul class="space-y-2">
+                    {exp.achievements.map((achievement) => (
+                      <li class="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-accent-400 mt-1 flex-shrink-0" />
+                        <span class="text-sm text-steel-300">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Technologies -->
+                <div>
+                  <h4 class="text-sm font-semibold text-primary-400 uppercase tracking-wider mb-3">
+                    Technologies Used
+                  </h4>
+                  <div class="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech) => (
+                      <span class="text-xs px-3 py-1 bg-steel-800/50 text-steel-300 rounded border border-steel-700/30 font-mono">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <div class="mt-20 max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+          <span class="text-gradient-full">Education & Qualifications</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <Card variant="glass">
+            <div class="mb-3">
+              <Badge variant="primary" className="text-xs mb-3">2023</Badge>
+              <h3 class="text-lg font-bold text-text-primary mb-2">
+                Advanced Diploma in Industrial Automation Engineering
+              </h3>
+              <p class="text-primary-400 text-sm mb-3">
+                Engineering Institute of Technology
+              </p>
+            </div>
+            <p class="text-sm text-steel-300 mb-4">
+              Comprehensive program covering advanced control systems, process automation, and industrial integration.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {['Advanced Process Control', 'PLC Programming', 'SCADA Design', 'Industrial Networking'].map((course) => (
+                <span class="text-xs px-2 py-1 bg-steel-800/30 text-steel-400 rounded">
+                  {course}
+                </span>
+              ))}
+            </div>
+          </Card>
+
+          <Card variant="glass">
+            <div class="mb-3">
+              <Badge variant="primary" className="text-xs mb-3">2015</Badge>
+              <h3 class="text-lg font-bold text-text-primary mb-2">
+                Bachelor of Business Studies
+              </h3>
+              <p class="text-primary-400 text-sm mb-3">
+                Massey University, New Zealand
+              </p>
+            </div>
+            <p class="text-sm text-steel-300 mb-4">
+              Double major in Marketing and Finance, providing business acumen for technical sales and project management.
+            </p>
+          </Card>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-20 text-center">
+        <div class="glass-card inline-block">
+          <h2 class="text-2xl md:text-3xl font-bold text-text-primary mb-4">
+            Ready to Discuss Your Next Project?
+          </h2>
+          <p class="text-steel-300 mb-6 max-w-2xl">
+            With over 10 years of experience delivering automation solutions, I can help bring your industrial automation vision to life.
+          </p>
+          <a href="/contact" class="btn-primary">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

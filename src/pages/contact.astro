@@ -1,0 +1,232 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/ui/Card.astro';
+import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowLeft } from 'lucide-react';
+
+const pageTitle = 'Contact | Kurt Adams';
+const pageDescription = 'Get in touch with Kurt Adams for industrial automation projects and consulting';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="pt-32 pb-20">
+    <div class="container">
+      <!-- Back to Home -->
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors mb-8 group">
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Back to Home</span>
+      </a>
+
+      <!-- Page Header -->
+      <div class="text-center mb-16 md:mb-20">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient-full">Get in Touch</span>
+        </h1>
+        <p class="text-lg md:text-xl text-steel-300 max-w-3xl mx-auto">
+          Interested in discussing automation projects or opportunities? Let's connect.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto">
+        <!-- Contact Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Contact Information -->
+          <Card variant="glass">
+            <h2 class="text-2xl font-bold text-primary-400 uppercase tracking-wider mb-6">
+              Contact Information
+            </h2>
+            <div class="space-y-6">
+              <!-- Email -->
+              <div class="flex items-start gap-4 group">
+                <div class="p-3 bg-primary-500/10 rounded-lg border border-primary-500/30 group-hover:bg-primary-500/20 transition-all">
+                  <Mail className="w-6 h-6 text-primary-400" />
+                </div>
+                <div>
+                  <p class="font-medium text-primary-500 uppercase text-xs tracking-wider mb-1">Email</p>
+                  <a
+                    href="mailto:kurt@autosapien.ai"
+                    class="text-accent-400 hover:text-primary-400 transition-colors text-lg font-mono"
+                  >
+                    kurt@autosapien.ai
+                  </a>
+                </div>
+              </div>
+
+              <!-- Location -->
+              <div class="flex items-start gap-4 group">
+                <div class="p-3 bg-accent-500/10 rounded-lg border border-accent-500/30 group-hover:bg-accent-500/20 transition-all">
+                  <MapPin className="w-6 h-6 text-accent-400" />
+                </div>
+                <div>
+                  <p class="font-medium text-primary-500 uppercase text-xs tracking-wider mb-1">Location</p>
+                  <p class="text-accent-400 text-lg">Perth, Western Australia</p>
+                </div>
+              </div>
+
+              <!-- Availability Status -->
+              <div class="mt-8 p-4 bg-accent-500/10 border border-accent-500/30 rounded-lg">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="status-active"></span>
+                  <span class="font-semibold text-accent-400 uppercase text-sm tracking-wider">
+                    Available for Opportunities
+                  </span>
+                </div>
+                <p class="text-sm text-steel-300">
+                  Currently open to discussing new automation projects, consulting opportunities, and technical partnerships.
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          <!-- Professional Links -->
+          <Card variant="glass">
+            <h2 class="text-2xl font-bold text-primary-400 uppercase tracking-wider mb-6">
+              Professional Links
+            </h2>
+            <div class="space-y-4">
+              <!-- LinkedIn -->
+              <a
+                href="https://linkedin.com/in/kurt-adams-automation"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between p-4 bg-steel-900/30 border border-steel-800/30 rounded-lg hover:border-primary-500/50 hover:bg-steel-900/50 transition-all group"
+              >
+                <div class="flex items-center gap-3">
+                  <Linkedin className="w-6 h-6 text-primary-400" />
+                  <div>
+                    <p class="font-semibold text-text-primary group-hover:text-primary-400 transition-colors">
+                      LinkedIn Profile
+                    </p>
+                    <p class="text-xs text-steel-400">Professional network</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-5 h-5 text-steel-400 group-hover:text-primary-400 transition-colors" />
+              </a>
+
+              <!-- GitHub -->
+              <a
+                href="https://github.com/tchiro88"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between p-4 bg-steel-900/30 border border-steel-800/30 rounded-lg hover:border-primary-500/50 hover:bg-steel-900/50 transition-all group"
+              >
+                <div class="flex items-center gap-3">
+                  <Github className="w-6 h-6 text-primary-400" />
+                  <div>
+                    <p class="font-semibold text-text-primary group-hover:text-primary-400 transition-colors">
+                      GitHub Profile
+                    </p>
+                    <p class="text-xs text-steel-400">Code repositories</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-5 h-5 text-steel-400 group-hover:text-primary-400 transition-colors" />
+              </a>
+
+              <!-- Email Button -->
+              <a
+                href="mailto:kurt@autosapien.ai"
+                class="btn-primary w-full flex items-center justify-center gap-2"
+              >
+                <Mail className="w-5 h-5" />
+                <span>Send Email</span>
+              </a>
+
+              <!-- Resume Download -->
+              <a
+                href="/resume.pdf"
+                download
+                class="btn-outline w-full flex items-center justify-center gap-2"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>Download Resume</span>
+              </a>
+            </div>
+          </Card>
+        </div>
+
+        <!-- Areas of Expertise -->
+        <Card variant="glass">
+          <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
+            <span class="text-gradient-full">Areas of Expertise</span>
+          </h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Control Systems -->
+            <div class="p-6 bg-steel-900/30 border border-steel-800/30 rounded-lg hover:border-primary-500/30 transition-all">
+              <div class="text-4xl mb-3">⚙️</div>
+              <h3 class="text-lg font-bold text-primary-400 uppercase tracking-wider mb-3">
+                Control Systems
+              </h3>
+              <p class="text-sm text-steel-300">
+                PLC programming, SCADA design, and DCS integration across multiple platforms
+              </p>
+            </div>
+
+            <!-- IIoT Solutions -->
+            <div class="p-6 bg-steel-900/30 border border-steel-800/30 rounded-lg hover:border-accent-500/30 transition-all">
+              <div class="text-4xl mb-3">🔗</div>
+              <h3 class="text-lg font-bold text-accent-400 uppercase tracking-wider mb-3">
+                IIoT Solutions
+              </h3>
+              <p class="text-sm text-steel-300">
+                Node-RED, MQTT, edge computing, and data analytics for Industry 4.0
+              </p>
+            </div>
+
+            <!-- Project Engineering -->
+            <div class="p-6 bg-steel-900/30 border border-steel-800/30 rounded-lg hover:border-primary-500/30 transition-all">
+              <div class="text-4xl mb-3">📊</div>
+              <h3 class="text-lg font-bold text-primary-400 uppercase tracking-wider mb-3">
+                Project Engineering
+              </h3>
+              <p class="text-sm text-steel-300">
+                End-to-end project delivery from design to commissioning
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Quick Links -->
+        <div class="mt-12 text-center">
+          <h3 class="text-lg font-semibold text-steel-300 mb-6">
+            Learn More About My Work
+          </h3>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/projects" class="btn-ghost">
+              View Projects
+            </a>
+            <a href="/experience" class="btn-ghost">
+              Experience Timeline
+            </a>
+            <a href="/skills" class="btn-ghost">
+              Technical Skills
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .status-active {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00ff88, #00d9ff);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+</style>

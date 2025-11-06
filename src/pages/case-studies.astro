@@ -1,0 +1,102 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/ui/Card.astro';
+import Badge from '@/components/ui/Badge.astro';
+import { ArrowLeft } from 'lucide-react';
+
+const pageTitle = 'Case Studies | Kurt Adams';
+const pageDescription = 'In-depth case studies of industrial automation projects and solutions';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="pt-32 pb-20">
+    <div class="container">
+      <!-- Back to Home -->
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors mb-8 group">
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Back to Home</span>
+      </a>
+
+      <!-- Page Header -->
+      <div class="text-center mb-16 md:mb-20">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient-full">Case Studies</span>
+        </h1>
+        <p class="text-lg md:text-xl text-steel-300 max-w-3xl mx-auto">
+          In-depth analysis of industrial automation projects and solutions
+        </p>
+      </div>
+
+      <!-- Coming Soon Message -->
+      <div class="max-w-3xl mx-auto text-center">
+        <Card variant="glass">
+          <div class="py-12">
+            <div class="text-6xl mb-6">📊</div>
+            <h2 class="text-3xl font-bold text-text-primary mb-4">
+              Detailed Case Studies Coming Soon
+            </h2>
+            <p class="text-steel-300 mb-8 max-w-xl mx-auto">
+              I'm preparing comprehensive case studies covering the technical challenges, solutions, and outcomes of major automation projects. Stay tuned for detailed insights!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="/projects" class="btn-primary">
+                View Project Overview
+              </a>
+              <a href="/contact" class="btn-outline">
+                Discuss Your Project
+              </a>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      <!-- Upcoming Case Studies -->
+      <div class="mt-16 max-w-5xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-10">
+          <span class="text-gradient-full">Upcoming Case Studies</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: 'Export Hay Press: $6M Automation Journey',
+              description: 'Complete breakdown of control system design, implementation challenges, and project delivery',
+              topics: ['System Architecture', 'PlantPAX Integration', 'Hydraulic Control'],
+            },
+            {
+              title: 'ABB Robot Modernization',
+              description: 'Legacy control philosophy re-engineering and safety system integration',
+              topics: ['Robot Integration', 'Safety PLC', 'Training & Documentation'],
+            },
+            {
+              title: 'Unified Namespace IIoT Platform',
+              description: 'Building a production-ready Industry 4.0 data architecture',
+              topics: ['Sparkplug B', 'Docker Deployment', 'AI Integration'],
+            },
+            {
+              title: 'Mining Conveyor Upgrade',
+              description: 'Modernizing legacy relay-based systems with PLCs and SCADA',
+              topics: ['PLC Migration', 'Predictive Maintenance', 'SCADA Design'],
+            },
+          ].map((study) => (
+            <Card variant="glass" className="hover:border-primary-500/30 transition-all">
+              <Badge variant="accent" className="text-xs mb-3">In Development</Badge>
+              <h3 class="text-xl font-bold text-text-primary mb-3">
+                {study.title}
+              </h3>
+              <p class="text-sm text-steel-300 mb-4">
+                {study.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {study.topics.map((topic) => (
+                  <span class="text-xs px-2 py-1 bg-steel-800/50 text-steel-400 rounded border border-steel-700/30">
+                    {topic}
+                  </span>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
