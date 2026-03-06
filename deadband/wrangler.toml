@@ -1,0 +1,8 @@
+name = "deadband-io"
+main = "worker.js"
+compatibility_date = "2024-11-05"
+
+routes = [
+  { pattern = "deadband.io/*", zone_name = "deadband.io" },
+  { pattern = "www.deadband.io/*", zone_name = "deadband.io" }
+]
