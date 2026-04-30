@@ -1,0 +1,150 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+
+const tools = [
+  { name: 'Node-RED', level: 90, category: 'Flow Engine' },
+  { name: 'MQTT (HiveMQ / Mosquitto)', level: 85, category: 'Protocol' },
+  { name: 'OPC-UA', level: 85, category: 'Protocol' },
+  { name: 'Docker / Balena Edge', level: 80, category: 'Edge Runtime' },
+  { name: 'Azure IoT Hub / AWS IoT Core', level: 70, category: 'Cloud' },
+  { name: 'InfluxDB / Grafana', level: 80, category: 'Time-Series' },
+];
+
+const projects = [
+  {
+    title: 'IIoT Sensor Network — Tailings Dam',
+    site: 'WA Gold Producer',
+    outcome: 'Deployed 40-node MQTT sensor mesh with Node-RED edge processing. Real-time piezometer and settlement data to cloud dashboard. Alert response time reduced from 4 hrs to < 2 min.',
+    tags: ['Node-RED', 'MQTT', 'Edge', 'Grafana'],
+  },
+  {
+    title: 'OPC-UA to Cloud Bridge',
+    site: 'Port Hedland — Bulk Handling',
+    outcome: 'Aggregated OPC-UA data from 6 PLCs into Azure IoT Hub. Built Node-RED translation layer normalising 1,200 tags into unified schema.',
+    tags: ['OPC-UA', 'Azure IoT', 'Node-RED'],
+  },
+  {
+    title: 'Raspberry Pi Edge Gateway Fleet',
+    site: 'Remote Mine Sites — 3 Locations',
+    outcome: 'Containerised Balena-managed gateway fleet. Offline-first buffering with store-and-forward to InfluxDB. 99.4% data continuity across VSAT links.',
+    tags: ['Balena', 'Docker', 'InfluxDB', 'VSAT'],
+  },
+];
+---
+
+<MainLayout
+  title="IIoT Platforms | Kurt Adams"
+  description="Industrial IoT architecture connecting edge devices to cloud analytics for mining assets."
+>
+  <!-- Hero -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden pt-20"
+    style="background: radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(0,204,214,0.06) 0%, transparent 50%), #0a0a0a;">
+    <div class="absolute inset-0 grid-background opacity-20 pointer-events-none"></div>
+    <div class="container relative z-10">
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-purple-400 transition-colors text-sm font-mono mb-8 group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+      <p class="font-mono text-purple-400 text-sm uppercase tracking-widest mb-4">03 // IoT</p>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        <span class="text-gradient-purple">IIoT</span>
+        <span class="text-text-primary"> Platforms</span>
+      </h1>
+      <p class="text-xl text-steel-300 max-w-2xl leading-relaxed mb-8">
+        Edge · Cloud · MQTT · OPC-UA · Node-RED — industrial IoT architecture connecting
+        field sensors to real-time analytics across distributed mining assets.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        {['Node-RED', 'MQTT', 'OPC-UA', 'Docker', 'Azure IoT', 'InfluxDB'].map(tag => (
+          <span class="badge-purple font-mono text-xs">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech proficiency -->
+  <section class="section bg-background-secondary">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-12">
+        Technology <span class="text-purple-400">Proficiency</span>
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="glass-card border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-semibold text-text-primary">{tool.name}</span>
+              <span class="badge-purple text-xs">{tool.category}</span>
+            </div>
+            <div class="w-full bg-steel-800 rounded-full h-2">
+              <div
+                class="h-2 rounded-full"
+                style={`width: ${tool.level}%; background: linear-gradient(90deg, #7c3aed, #a855f7);`}
+              ></div>
+            </div>
+            <span class="text-xs text-steel-400 mt-1 inline-block font-mono">{tool.level}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Project examples -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-12">
+        Project <span class="text-purple-400">Examples</span>
+      </h2>
+      <div class="grid gap-6">
+        {projects.map(p => (
+          <div class="glass-card border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
+            style="hover:box-shadow: 0 0 20px rgba(168,85,247,0.3);">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-text-primary mb-1">{p.title}</h3>
+                <p class="text-purple-400 text-sm font-mono mb-3">{p.site}</p>
+                <p class="text-steel-300 leading-relaxed">{p.outcome}</p>
+              </div>
+              <div class="flex flex-wrap gap-2 md:flex-col md:items-end">
+                {p.tags.map(tag => (
+                  <span class="badge-purple text-xs whitespace-nowrap">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-background-secondary">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold text-text-primary mb-4">Need real-time visibility across your assets?</h2>
+      <p class="text-steel-300 mb-8 max-w-xl mx-auto">Edge-to-cloud IIoT architecture designed for reliability in remote mining environments.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary">Get In Touch</a>
+        <a href="/projects" class="btn-outline">View All Projects</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #a855f7, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .badge-purple {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #a855f7;
+  }
+  .grid-background {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+</style>

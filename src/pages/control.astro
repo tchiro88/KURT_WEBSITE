@@ -1,0 +1,142 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+
+const tools = [
+  { name: 'Ignition SCADA', level: 90, category: 'Platform' },
+  { name: 'Allen-Bradley PLC', level: 85, category: 'Hardware' },
+  { name: 'Siemens S7 / TIA Portal', level: 75, category: 'Hardware' },
+  { name: 'Wonderware / InTouch', level: 70, category: 'Platform' },
+  { name: 'OSIsoft PI / AVEVA', level: 65, category: 'Historian' },
+  { name: 'ISA-18.2 Alarm Management', level: 80, category: 'Standard' },
+];
+
+const projects = [
+  {
+    title: 'ROM Crusher SCADA Overhaul',
+    site: 'Pilbara Iron Ore — BHP',
+    outcome: 'Replaced aging WonderWare system with Ignition. Reduced alarm flood by 60%, improved crusher uptime 12%.',
+    tags: ['Ignition', 'Allen-Bradley', 'ISA-18.2'],
+  },
+  {
+    title: 'Remote Operations Centre Buildout',
+    site: 'Goldfields — Mid-tier producer',
+    outcome: 'Designed full ROC architecture across 3 mine sites. Single-pane visibility for 200+ control points.',
+    tags: ['Ignition', 'OPC-UA', 'Historian'],
+  },
+  {
+    title: 'Conveyor Network PLC Migration',
+    site: 'Port Hedland Bulk Handling',
+    outcome: 'Legacy SLC-500 → ControlLogix migration. Zero production-loss cutover strategy. 35% maintenance cost reduction.',
+    tags: ['ControlLogix', 'Studio 5000', 'Cutover'],
+  },
+];
+---
+
+<MainLayout
+  title="Control Systems | Kurt Adams"
+  description="SCADA, PLC, HMI and Remote Operations Centre expertise for mining automation."
+>
+  <!-- Hero -->
+  <section class="relative min-h-[50vh] flex items-center bg-gradient-hero overflow-hidden pt-20">
+    <div class="absolute inset-0 grid-background opacity-20 pointer-events-none"></div>
+    <div class="container relative z-10">
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-primary-400 transition-colors text-sm font-mono mb-8 group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+      <p class="terminal-text text-sm uppercase tracking-widest mb-4">01 // CONTROL</p>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        <span class="text-gradient-primary">Control</span>
+        <span class="text-text-primary"> Systems</span>
+      </h1>
+      <p class="text-xl text-steel-300 max-w-2xl leading-relaxed mb-8">
+        SCADA · PLC · HMI · Remote Operations — end-to-end industrial control architecture
+        from field signal to enterprise visibility.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        {['Ignition SCADA', 'Allen-Bradley', 'Siemens S7', 'OPC-UA', 'ROC Design'].map(tag => (
+          <span class="badge-primary font-mono text-xs">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech proficiency -->
+  <section class="section bg-background-secondary">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-12">
+        Technology <span class="text-primary-400">Proficiency</span>
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="glass-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-semibold text-text-primary">{tool.name}</span>
+              <span class="badge-primary text-xs">{tool.category}</span>
+            </div>
+            <div class="w-full bg-steel-800 rounded-full h-2">
+              <div
+                class="bg-gradient-to-r from-primary-600 to-primary-400 h-2 rounded-full"
+                style={`width: ${tool.level}%`}
+              ></div>
+            </div>
+            <span class="text-xs text-steel-400 mt-1 inline-block font-mono">{tool.level}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Project examples -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-12">
+        Project <span class="text-primary-400">Examples</span>
+      </h2>
+      <div class="grid gap-6">
+        {projects.map(p => (
+          <div class="glass-card glow-border hover:glow-border transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-text-primary mb-1">{p.title}</h3>
+                <p class="text-primary-400 text-sm font-mono mb-3">{p.site}</p>
+                <p class="text-steel-300 leading-relaxed">{p.outcome}</p>
+              </div>
+              <div class="flex flex-wrap gap-2 md:flex-col md:items-end">
+                {p.tags.map(tag => (
+                  <span class="badge-primary text-xs whitespace-nowrap">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-background-secondary">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold text-text-primary mb-4">Ready to modernise your control infrastructure?</h2>
+      <p class="text-steel-300 mb-8 max-w-xl mx-auto">Let's discuss your SCADA architecture, migration path, or ROC buildout.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary">Get In Touch</a>
+        <a href="/projects" class="btn-outline">View All Projects</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #00ccd6, #26d4dc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .grid-background {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ccd6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+</style>

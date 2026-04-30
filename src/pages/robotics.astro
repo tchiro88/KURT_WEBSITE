@@ -1,0 +1,143 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+
+const tools = [
+  { name: 'Autonomous Haulage System (AHS)', level: 85, category: 'Platform' },
+  { name: 'Drill Automation Interfaces', level: 80, category: 'Integration' },
+  { name: 'LiDAR / Collision Avoidance', level: 75, category: 'Sensing' },
+  { name: 'Fleet Management Systems', level: 80, category: 'Platform' },
+  { name: 'Safety-Critical System Validation', level: 85, category: 'Process' },
+  { name: 'ROS / Robotics Middleware', level: 60, category: 'Framework' },
+];
+
+const projects = [
+  {
+    title: 'AHS Deployment Support — Iron Ore',
+    site: 'Pilbara — Tier 1 Producer',
+    outcome: 'Field commissioning support for 40-truck AHS rollout. Resolved OEM integration issues cutting go-live delays by 3 weeks.',
+    tags: ['AHS', 'Fleet Mgmt', 'Commissioning'],
+  },
+  {
+    title: 'Automated Drill Monitoring System',
+    site: 'WA Goldfields — Open Pit',
+    outcome: 'IIoT overlay on existing drill rigs feeding real-time penetration data to SCADA. Reduced re-drill rate 18%.',
+    tags: ['Drill Automation', 'IIoT', 'SCADA'],
+  },
+  {
+    title: 'Proximity Detection Integration',
+    site: 'Underground Gold Mine',
+    outcome: 'Integrated Strata/Booyco PDS with existing dispatch system. Achieved zero Level 9 interactions post-deployment.',
+    tags: ['Proximity', 'Safety', 'Integration'],
+  },
+];
+---
+
+<MainLayout
+  title="Robotics & Autonomy | Kurt Adams"
+  description="Autonomous haulage, drill automation, and robotic system integration for mining."
+>
+  <!-- Hero -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden pt-20"
+    style="background: radial-gradient(ellipse at 50% 0%, rgba(251,146,60,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(0,204,214,0.06) 0%, transparent 50%), #0a0a0a;">
+    <div class="absolute inset-0 grid-background opacity-20 pointer-events-none"></div>
+    <div class="container relative z-10">
+      <a href="/" class="inline-flex items-center gap-2 text-steel-400 hover:text-accent-400 transition-colors text-sm font-mono mb-8 group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+      <p class="font-mono text-accent-400 text-sm uppercase tracking-widest mb-4">02 // ROBOTICS</p>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        <span class="text-gradient-accent">Robotics</span>
+        <span class="text-text-primary"> & Autonomy</span>
+      </h1>
+      <p class="text-xl text-steel-300 max-w-2xl leading-relaxed mb-8">
+        Autonomous haulage, drill automation, and robotic system integration for open-pit
+        and underground mining environments.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        {['AHS', 'Drill Automation', 'LiDAR', 'Fleet Mgmt', 'Safety Systems'].map(tag => (
+          <span class="badge-accent font-mono text-xs">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech proficiency -->
+  <section class="section bg-background-secondary">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-12">
+        Technology <span class="text-accent-400">Proficiency</span>
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="glass-card border border-accent-500/20 hover:border-accent-500/40 transition-colors">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-semibold text-text-primary">{tool.name}</span>
+              <span class="badge-accent text-xs">{tool.category}</span>
+            </div>
+            <div class="w-full bg-steel-800 rounded-full h-2">
+              <div
+                class="bg-gradient-to-r from-accent-600 to-accent-400 h-2 rounded-full"
+                style={`width: ${tool.level}%`}
+              ></div>
+            </div>
+            <span class="text-xs text-steel-400 mt-1 inline-block font-mono">{tool.level}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Project examples -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-12">
+        Project <span class="text-accent-400">Examples</span>
+      </h2>
+      <div class="grid gap-6">
+        {projects.map(p => (
+          <div class="glass-card border border-accent-500/20 hover:border-accent-500/40 hover:shadow-glow-accent transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-text-primary mb-1">{p.title}</h3>
+                <p class="text-accent-400 text-sm font-mono mb-3">{p.site}</p>
+                <p class="text-steel-300 leading-relaxed">{p.outcome}</p>
+              </div>
+              <div class="flex flex-wrap gap-2 md:flex-col md:items-end">
+                {p.tags.map(tag => (
+                  <span class="badge-accent text-xs whitespace-nowrap">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-background-secondary">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold text-text-primary mb-4">Planning an autonomy deployment?</h2>
+      <p class="text-steel-300 mb-8 max-w-xl mx-auto">From AHS pre-studies to proximity detection integration — let's scope it out.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-secondary">Get In Touch</a>
+        <a href="/projects" class="btn-outline">View All Projects</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #fb923c, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .grid-background {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fb923c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/G%3E%3C/svg%3E");
+  }
+</style>

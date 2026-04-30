@@ -1,0 +1,192 @@
+---
+const pillars = [
+  {
+    id: 'control',
+    href: '/control',
+    label: '01 // CONTROL',
+    title: 'Control Systems',
+    tagline: 'SCADA · PLC · HMI · Remote Operations',
+    color: 'cyan',
+    accentClass: 'text-primary-400',
+    borderClass: 'border-primary-500/30',
+    glowClass: 'shadow-glow-sm',
+    hoverGlowClass: 'hover:shadow-glow-md',
+    bgClass: 'bg-primary-500/10',
+    badgeBg: 'bg-primary-500/10 border border-primary-500/30 text-primary-400',
+    iconPath: 'M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18',
+    description:
+      'End-to-end industrial control architecture — from field-level PLCs to enterprise SCADA platforms and remote operations centres.',
+    capabilities: [
+      'Ignition SCADA design & deployment',
+      'PLC programming (Allen-Bradley, Siemens)',
+      'Remote Operations Centre (ROC) integration',
+      'HMI/SCADA migration & modernisation',
+      'Alarm management & ISA-18.2 compliance',
+    ],
+    stat: { value: '50+', label: 'Systems Integrated' },
+  },
+  {
+    id: 'robotics',
+    href: '/robotics',
+    label: '02 // ROBOTICS',
+    title: 'Robotics & Autonomy',
+    tagline: 'AHS · Drill Automation · Autonomous Fleet',
+    color: 'orange',
+    accentClass: 'text-accent-400',
+    borderClass: 'border-accent-500/30',
+    glowClass: 'shadow-glow-accent',
+    hoverGlowClass: 'hover:shadow-[0_0_30px_rgba(251,146,60,0.4)]',
+    bgClass: 'bg-accent-500/10',
+    badgeBg: 'bg-accent-500/10 border border-accent-500/30 text-accent-400',
+    iconPath: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    description:
+      'Autonomous haulage, drill automation, and robotic system integration for open-pit and underground mining environments.',
+    capabilities: [
+      'Autonomous Haulage System (AHS) deployment',
+      'Drill & blast automation interfaces',
+      'LiDAR / collision avoidance integration',
+      'Fleet management system connectivity',
+      'Safety-critical system validation',
+    ],
+    stat: { value: '$6M+', label: 'Projects Delivered' },
+  },
+  {
+    id: 'iot',
+    href: '/iot',
+    label: '03 // IoT',
+    title: 'IIoT Platforms',
+    tagline: 'Edge · Cloud · MQTT · OPC-UA · Node-RED',
+    color: 'purple',
+    accentClass: 'text-data-purple',
+    borderClass: 'border-data-purple/30',
+    glowClass: 'shadow-[0_0_10px_rgba(168,85,247,0.3)]',
+    hoverGlowClass: 'hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]',
+    bgClass: 'bg-data-purple/10',
+    badgeBg: 'bg-data-purple/10 border border-data-purple/30 text-data-purple',
+    iconPath: 'M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0',
+    description:
+      'Industrial IoT architecture connecting edge devices to cloud analytics — real-time visibility across distributed mining assets.',
+    capabilities: [
+      'Node-RED flow development & deployment',
+      'MQTT broker architecture (HiveMQ, Mosquitto)',
+      'OPC-UA server/client configuration',
+      'Edge computing (Docker, Balena, RPi)',
+      'Cloud dashboards (Azure IoT, AWS IoT Core)',
+    ],
+    stat: { value: '35%+', label: 'Avg. Efficiency Gain' },
+  },
+];
+---
+
+<section id="pillars" class="section bg-gradient-command-center relative overflow-hidden">
+  <!-- Subtle grid overlay -->
+  <div class="absolute inset-0 grid-background opacity-20 pointer-events-none"></div>
+
+  <div class="container relative z-10">
+    <!-- Section header -->
+    <div class="text-center mb-16 md:mb-20 animate-fade-in">
+      <p class="terminal-text text-sm uppercase tracking-widest mb-4">
+        // Core Domains
+      </p>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+        Three Pillars of
+        <span class="text-gradient-primary"> Industrial Intelligence</span>
+      </h2>
+      <p class="text-lg text-steel-300 max-w-2xl mx-auto leading-relaxed">
+        Deep expertise across the full stack of mining automation — from raw signal to cloud analytics.
+      </p>
+    </div>
+
+    <!-- Pillar cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+      {pillars.map((pillar, i) => (
+        <a
+          href={pillar.href}
+          class={`
+            group relative flex flex-col glass-card
+            border ${pillar.borderClass}
+            ${pillar.glowClass} ${pillar.hoverGlowClass}
+            hover:border-opacity-70
+            transition-all duration-300 hover:-translate-y-1
+            cursor-pointer no-underline
+          `}
+          style={`animation-delay: ${i * 120}ms`}
+        >
+          <!-- Pillar number + label -->
+          <div class="flex items-center justify-between mb-6">
+            <span class={`font-mono text-xs tracking-widest ${pillar.accentClass} uppercase`}>
+              {pillar.label}
+            </span>
+            <span class={`text-xs font-mono px-2 py-1 rounded ${pillar.badgeBg}`}>
+              {pillar.stat.value}
+              <span class="text-steel-400 ml-1">{pillar.stat.label}</span>
+            </span>
+          </div>
+
+          <!-- Icon -->
+          <div class={`w-14 h-14 rounded-xl ${pillar.bgClass} flex items-center justify-center mb-6 border ${pillar.borderClass} transition-transform duration-300 group-hover:scale-110`}>
+            <svg class={`w-7 h-7 ${pillar.accentClass}`} fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d={pillar.iconPath} />
+            </svg>
+          </div>
+
+          <!-- Title + tagline -->
+          <h3 class={`text-2xl md:text-3xl font-bold text-text-primary mb-2 group-hover:${pillar.accentClass} transition-colors`}>
+            {pillar.title}
+          </h3>
+          <p class={`text-sm font-mono ${pillar.accentClass} mb-4 tracking-wide`}>
+            {pillar.tagline}
+          </p>
+
+          <!-- Description -->
+          <p class="text-steel-300 text-sm leading-relaxed mb-6 flex-grow">
+            {pillar.description}
+          </p>
+
+          <!-- Capability list -->
+          <ul class="space-y-2 mb-8">
+            {pillar.capabilities.map((cap) => (
+              <li class="flex items-start gap-2 text-sm text-steel-300">
+                <span class={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${pillar.bgClass} border ${pillar.borderClass}`}></span>
+                {cap}
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA -->
+          <div class={`flex items-center gap-2 text-sm font-semibold ${pillar.accentClass} mt-auto`}>
+            <span>Explore {pillar.title}</span>
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          <!-- Hover scan line -->
+          <div class="absolute inset-0 rounded-lg overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="scan-line"></div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Bottom connector hint -->
+    <div class="mt-16 text-center">
+      <p class="text-steel-500 text-sm font-mono">
+        // Each domain links deeper — projects, case studies, and tech stack details
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #00ccd6, #fb923c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grid-background {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ccd6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+</style>
